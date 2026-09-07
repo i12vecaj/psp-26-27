@@ -1,5 +1,3 @@
-![lope_logo](https://www.ceslopedevega.com/wp-content/uploads/2020/03/pruebalogo.svg_.png)
-
 # UA5 - Técnicas de programación segura
 
 - Temporalización: **2T**
@@ -99,7 +97,7 @@ Utilizando el *framework* creado con las prácticas de la UA4 (API), añade la f
 }
 ```
 ```
-Fecha de Entrega: 18/02/2026
+Fecha de Entrega: xx/0x/2027
 ```
 
 
@@ -110,7 +108,7 @@ Esta práctica es sencilla, basta con ejecutar el pequeño [MANUAL](https://ryct
 Estas claves generadas y guardadas pueden utilizarse en los ejemplos.
 
 ```
-Fecha de Entrega: 18/02/2026
+Fecha de Entrega: xx/xx/2027
 ```
 
 
@@ -126,12 +124,12 @@ Para ello, modificaremos nuestra API, para que por argumentos en la línea de co
 - [Stack overflow: Simple Java HTTPS server](https://stackoverflow.com/questions/2308479/simple-java-https-server)
 
 ```
-Fecha de Entrega: xx/xx/2026
+Fecha de Entrega: xx/xx/2027
 ```
 
 ## Recursos
 
-- [Repositorio Asignatura](https://github.com/i12vecaj/psp-25-26)
+- [Repositorio Asignatura](https://github.com/i12vecaj/psp-26-27)
 - Apuntes del Profesorado //TODO
 - Bibliografía Recomendada
   - **Programación de servicios y procesos - Técnico Superior en DAM.** *Mª Jesús Ramos Martín. Editorial Garceta. 2ª Edición. 2018. ISBN: 978-84-1728-931-7.*
