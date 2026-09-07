@@ -1,4 +1,3 @@
-![lope_logo](https://www.ceslopedevega.com/wp-content/uploads/2020/03/pruebalogo.svg_.png)
 
 # UA4 - Generación de Servicios en Red
 
@@ -62,7 +61,7 @@ Modifica el cliente FTP de ejemplo para que pueda conectarse a cualquier servido
 Haz que el usuario tenga que introducir el nombre del servidor FTP, el nombre de usuario y su clave, ya sea desde la línea de comandos o modificando la interfaz gráfica.
 La opción de la interfaz gráfica permitirá sacar el 10 en esta tarea, mientras que la opción por línea de comandos únicamente puntuará hasta 8 puntos.
 ```
-Fecha de Entrega: xx/xx/2026 - 14:45
+Fecha de Entrega: xx/xx/2027 - 14:45
 ```
 <!--
   Curso siguiente:
@@ -75,7 +74,7 @@ Fecha de Entrega: xx/xx/2026 - 14:45
 ### **Tarea 2 (T2) - Servicios en Red (II)**
 ##### **Criterios a), b), c), d) e), f), g), h)**
 
-Analiza el código planteado en [UA4\tareas\dev_0\tarea_2](https://github.com/i12vecaj/psp-25-26/tree/main/UA4/tareas/dev_0/tarea_2)
+Analiza el código planteado en [UA4\tareas\dev_0\tarea_2](https://github.com/i12vecaj/psp-26-27/tree/main/UA4/tareas/dev_0/tarea_2)
 
 Una vez tengas tu primera API básica completa aumenta su funcionalidad permitiendo que la API:
 
@@ -106,7 +105,7 @@ Referencias:
 
 
 ```
-Fecha de Entrega: xx/xx/2026 - 14:45
+Fecha de Entrega: xx/xx/2027 - 14:45
 ```
 
 #### NOTAS SOBRE LA CORRECCIÓN EN CLASE
@@ -115,7 +114,7 @@ Fecha de Entrega: xx/xx/2026 - 14:45
 - Las 9 primeras se corresponden con la parte de buscar a las personas con nombre y la última es para buscar la persona por ID.
 - El miércoles os daré unos minutos para explicar de nuevo el proceso y que actualicéis el código en el repositorio y pasaré a ejecutar los tests y presentéis/defendáis el código planteado, problemas, etc.
 - [Postman API Tests Documentation](https://documenter.getpostman.com/view/25845189/2s935vmLQc)
-- [Postman API Tests EXPORT](https://github.com/i12vecaj/psp-25-26/blob/main/UA4/tareas/dev_0/tarea_2/2_dam_psp_ua4_tarea_2.postman_collection.json)
+- [Postman API Tests EXPORT](https://github.com/i12vecaj/psp-26-27/blob/main/UA4/tareas/dev_0/tarea_2/2_dam_psp_ua4_tarea_2.postman_collection.json)
 
 
 ### **Tarea 3 (T3) - Servicios en Red (III): Code Refactoring**
@@ -189,10 +188,10 @@ Antes de poneros a crear ficheros y modificarlos, hay que pensar.  Os propongo u
 
 La API es vuestra.  Vosotros sois los arquitectos, diseñadores y codificadores.  Hay decisiones que os corresponde empezar a tomar.  Sin riesgo no hay gloria: NO PAIN NO GAIN.
 
-Por supuesto, las dudas y comentarios que os vayan surgiendo (QUE OS SURGIRÁN) estos días, ya sabéis que tenemos disponible el canal de [SLACK](https://psp-2223.slack.com/) para irlas aclarando y aprendiendo entre todos.
+Por supuesto, las dudas y comentarios que os vayan surgiendo (QUE OS SURGIRÁN) estos días, ya sabéis que tenemos disponible el canal de [SLACK] para irlas aclarando y aprendiendo entre todos.
 
 ```
-Fecha de Entrega: xx/03/2026
+Fecha de Entrega: xx/0x/2027
 ```
 
 
