@@ -10,11 +10,11 @@ Repositorio para el seguimiento y evaluación de la asignatura Programación de 
 
 
 ## Contenidos
-- [UA1 - Programación Multiproceso](https://github.com/i12vecaj/psp-25-26/tree/main/UA1)
-- [UA2 - Programación Multihilo](https://github.com/i12vecaj/psp-25-26/tree/main/UA2)
-- [UA3 - Programación de comunicaciones en red](https://github.com/i12vecaj/psp-25-26/tree/main/UA3)
-- [UA4 - Desarrollo de Servicios en Red](https://github.com/i12vecaj/psp-25-26/tree/main/UA4)
-- [UA5 - Técnicas de Programación segura](https://github.com/i12vecaj/psp-25-26/tree/main/UA5)
+- [UA1 - Programación Multiproceso](https://github.com/i12vecaj/psp-26-27/tree/main/UA1)
+- [UA2 - Programación Multihilo](https://github.com/i12vecaj/psp-26-27/tree/main/UA2)
+- [UA3 - Programación de comunicaciones en red](https://github.com/i12vecaj/psp-26-27/tree/main/UA3)
+- [UA4 - Desarrollo de Servicios en Red](https://github.com/i12vecaj/psp-26-27/tree/main/UA4)
+- [UA5 - Técnicas de Programación segura](https://github.com/i12vecaj/psp-26-27/tree/main/UA5)
 
 ## Requerimientos Básicos
 
@@ -29,7 +29,7 @@ El desarrollo del módulo profesional se basará en el uso de tecnologías actua
   - CodeBlocks
 - [Git](https://git-scm.com/)
 - Unit Testing - [Junit](https://junit.org/junit5/)
-- [Instrucciones de Entrega](https://github.com/i12vecaj/psp-25-26/blob/main/INSTRUCCIONES_ENTREGAS.md)
+- [Instrucciones de Entrega](https://github.com/i12vecaj/psp-26-27/blob/main/INSTRUCCIONES_ENTREGAS.md)
 
 ## Recursos
 
