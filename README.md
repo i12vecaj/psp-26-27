@@ -22,7 +22,7 @@ El desarrollo del módulo profesional se basará en el uso de tecnologías actua
 
 - Lenguajes de Programación:
   - [C/C++](https://isocpp.org/)
-  - [Java SE 25 (Long Term Support)](https://docs.oracle.com/en/java/javase/17/docs/api/index.html)
+  - [Java SE 25 (Long Term Support)](https://docs.oracle.com/en/java/javase/25/docs/api/index.html)
 - Entornos de Desarrollo:
   - IntelliJ
   - VSCode
