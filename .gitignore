@@ -26,6 +26,7 @@ Thumbs.db
 *.env
 
 💬 Recomendación final
+.gitignore
 
     Antes de hacer git add ., revisa qué vas a subir con:
 
