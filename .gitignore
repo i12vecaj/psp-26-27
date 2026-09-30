@@ -25,6 +25,7 @@ Thumbs.db
 *.properties
 *.env
 .gitignore
+.idea
 
 💬 Recomendación final
 
