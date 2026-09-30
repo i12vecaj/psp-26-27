@@ -24,9 +24,9 @@ Thumbs.db
 # Archivos sensibles
 *.properties
 *.env
+.gitignore
 
 💬 Recomendación final
-.gitignore
 
     Antes de hacer git add ., revisa qué vas a subir con:
 
