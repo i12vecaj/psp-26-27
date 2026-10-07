@@ -4,21 +4,25 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class Ejemplo2Error {
+public class Ejemplo2v {
 			public static void main(String[] args) throws IOException {
 
-				Process p = new ProcessBuilder("CMD", "/C", "DIRR").start();
+				Process p = new ProcessBuilder("CMD", "/C", "DIR").start();
 				try {
 
 					InputStream is = p.getInputStream();
+					BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
-					// mostramos en pantalla caracter a caracter
-					 int c;
-					 while ((c = is.read()) != -1)
-						System.out.print((char) c);
-					 is.close();
+					String linea;
+					int contadorLineas = 1;
+					// Cambiamos el método a un buffered reader para numerar las líneas
+					while ((linea = br.readLine()) != null) {
+						// Mostramos el número de línea seguido del contenido
+						System.out.println(contadorLineas + ": " + linea);
+						contadorLineas++;
+					}br.close();
 
-				
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
