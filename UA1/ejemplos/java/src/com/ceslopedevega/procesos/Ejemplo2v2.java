@@ -1,20 +1,24 @@
 package com.ceslopedevega.procesos;
 import java.io.*;
 
-public class Ejemplo2 {
+public class Ejemplo2v2 {
 	public static void main(String[] args) throws IOException {
 
 		Process p = new ProcessBuilder("bash", "-c", "ls").start();
 		try {
-
 			InputStream is = p.getInputStream();
+			// Envolvemos el flujo en un BufferedReader para poder extraer líneas completas
+			BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
-			// mostramos en pantalla caracter a caracter
-			 int c;
-			 while ((c = is.read()) != -1)
-				System.out.print((char) c);
-			 is.close();
+			String linea;
+			int numeroLinea = 1;
 
+			// Leemos línea a línea hasta que devuelva null (fin de los datos)
+			while ((linea = br.readLine()) != null) {
+				System.out.println(numeroLinea + " - " + linea);
+				numeroLinea++;
+			}
+			br.close();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -29,4 +33,4 @@ public class Ejemplo2 {
 			e.printStackTrace();
 		}
 	}
-}// Ejemplo2
+}
