@@ -27,7 +27,7 @@ Thumbs.db
 
 💬 Recomendación final
 .gitignore
-
+.idea
     Antes de hacer git add ., revisa qué vas a subir con:
 
 git status
