@@ -7,7 +7,10 @@ public class Ejemplo1 {
       for(int i=0; i<1;i++) 
       {
          Process p = pb.start();
+          System.out.println("El PID del proceso hijo es "+p.pid());
       }
+      long current = ProcessHandle.current().pid();
+       System.out.println("El PID del proceso main es "+current);
    }
 }//Ejemplo1
 
