@@ -1,0 +1,20 @@
+# Directorios de compilacion
+build/
+bin/
+obj/
+
+# Archivos ejecutables y objetos
+*.exe
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.so
+
+# CMake (en caso de ejecutar cmake fuera de build)
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+.ninja_*
