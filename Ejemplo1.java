@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 
-public class tarea1 {
+public class Ejemplo1 {
 
     public static void main(String[] args) throws IOException {
 
