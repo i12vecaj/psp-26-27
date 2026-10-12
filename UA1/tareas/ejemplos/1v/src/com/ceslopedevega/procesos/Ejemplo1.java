@@ -1,7 +1,0 @@
-public class Ejemplo1 {
-
-    
-
-
-
-}
