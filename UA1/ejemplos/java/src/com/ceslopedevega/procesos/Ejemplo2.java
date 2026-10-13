@@ -4,29 +4,29 @@ import java.io.*;
 public class Ejemplo2 {
 	public static void main(String[] args) throws IOException {
 
-		Process p = new ProcessBuilder("CMD", "/C", "DIR").start();
-		try {
+        Process p = new ProcessBuilder("CMD", "/C", "DIR").start();
 
-			InputStream is = p.getInputStream();
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(p.getInputStream()))) {
 
-			// mostramos en pantalla caracter a caracter
-			 int c;
-			 while ((c = is.read()) != -1)
-				System.out.print((char) c);
-			 is.close();
+            String linea;
+            int numero = 1;
 
-		
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+            while ((linea = reader.readLine()) != null) {
+                System.out.println(numero + ": " + linea);
+                numero++;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-		// COMPROBACION DE ERROR - 0 bien - 1 mal
-		int exitVal;
-		try {
-			exitVal = p.waitFor();
-			System.out.println("Valor de Salida: " + exitVal);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-}// Ejemplo2
+        // Comprobación de error: 0 = correcto; otro valor = error
+        try {
+            int exitVal = p.waitFor();
+            System.out.println("Valor de Salida: " + exitVal);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            e.printStackTrace();
+        }
+    }
+}//Ejemplo2
