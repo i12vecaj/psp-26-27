@@ -1,0 +1,159 @@
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.*;
+import java.time.Duration;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
+import java.util.regex.Pattern;
+
+/**
+ * Versión CORREGIDA de CodigoConFallos (requiere Java 16+ por el record).
+ * Uso: java CodigoCorregido.java <1|2|3|4> [texto]
+ *
+ * Qué se ha corregido:
+ *  1. saludar     -> sin "sh -c": el nombre es un argumento aparte y además se valida (inyección).
+ *  2. contarNumeros -> se lee a la vez que corre el proceso, sin waitFor() previo (deadlock).
+ *  3. ordenar     -> se cierra getOutputStream() para que "sort" reciba el fin de entrada (cuelgue).
+ *  4. mostrar     -> se comprueba el código de salida y se recoge stderr (falso "correcto").
+ *  main           -> valida argumentos, tiene default y códigos de salida propios.
+ *  Extra          -> timeout, se matan los procesos descendientes, charset del sistema y Windows/Linux.
+ */
+public class CodigoCorregido {
+
+    static final boolean WIN = System.getProperty("os.name").toLowerCase().contains("win");
+    // cmd y los programas de consola de Windows escriben en la codificación del sistema, no en UTF-8
+    static final Charset CHARSET =
+            Charset.forName(System.getProperty("native.encoding", Charset.defaultCharset().name()));
+    static final long LIMITE_SEGUNDOS = 15;
+    static final Pattern NOMBRE_VALIDO = Pattern.compile("[\\p{L} ]{1,30}");
+
+    record Resultado(long pid, int codigo, boolean timeout) {
+        boolean ok() { return !timeout && codigo == 0; }
+    }
+
+    /**
+     * Ejecuta un comando SIN shell (argumentos separados), con stderr mezclado en stdout,
+     * lectura concurrente línea a línea, stdin cerrado siempre y timeout.
+     * Cada línea se entrega a "porLinea" (no se acumula nada en memoria).
+     */
+    static Resultado ejecutar(List<String> comando, byte[] stdin, Consumer<String> porLinea)
+            throws IOException, InterruptedException {
+        ProcessBuilder pb = new ProcessBuilder(comando);
+        pb.redirectErrorStream(true);                       // stdout y stderr juntos: no se pierde el error
+        Process p = pb.start();
+
+        // El lector arranca ANTES de esperar: así el hijo nunca se bloquea por buffer lleno.
+        Thread lector = new Thread(() -> {
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream(), CHARSET))) {
+                String linea;
+                while ((linea = br.readLine()) != null) porLinea.accept(linea);
+            } catch (IOException ignorada) {
+                // el proceso se cerró mientras leíamos
+            }
+        });
+        lector.setDaemon(true);
+        lector.start();
+
+        // getOutputStream = escribo AL hijo. Se cierra SIEMPRE: así el hijo recibe el fin de entrada (EOF).
+        try (OutputStream os = p.getOutputStream()) {
+            if (stdin != null) os.write(stdin);
+        } catch (IOException ignorada) {
+            // el hijo terminó antes de leer todo: no es un error nuestro
+        }
+
+        boolean termino = p.waitFor(LIMITE_SEGUNDOS, TimeUnit.SECONDS);
+        if (!termino) {
+            p.descendants().forEach(ProcessHandle::destroyForcibly);   // los hijos de "cmd /c ..." también
+            p.destroyForcibly();
+            p.waitFor();
+        }
+        lector.join(2000);
+        return new Resultado(p.pid(), termino ? p.exitValue() : -1, !termino);
+    }
+
+    // Caso 1: saluda al nombre que escribe el usuario
+    static int saludar(String nombre) throws Exception {
+        if (!NOMBRE_VALIDO.matcher(nombre).matches())
+            throw new IllegalArgumentException("Nombre no válido (solo letras y espacios, máximo 30)");
+        // Cada palabra va como argumento separado (sin comillas raras en Windows)
+        List<String> comando = new ArrayList<>(WIN ? List.of("cmd", "/c", "echo", "Hola")
+                                                   : List.of("echo", "Hola"));
+        comando.addAll(Arrays.asList(nombre.trim().split(" +")));
+        return informar(ejecutar(comando, null, System.out::println));
+    }
+
+    // Caso 2: cuenta cuántos números genera el comando
+    static int contarNumeros() throws Exception {
+        List<String> comando = WIN ? List.of("powershell", "-NoProfile", "-Command",
+                                         "[Console]::Out.Write([string]::Join([char]10, (1..1000000)))")
+                                   : List.of("seq", "1", "1000000");
+        int[] n = {0};
+        Resultado r = ejecutar(comando, null, linea -> n[0]++);
+        System.out.println("Números generados: " + n[0]);
+        return informar(r);
+    }
+
+    // Caso 3: ordena unas palabras con el comando "sort"
+    static int ordenar() throws Exception {
+        byte[] entrada = "pera\nmanzana\nbanana\n".getBytes(CHARSET);
+        return informar(ejecutar(List.of("sort"), entrada, System.out::println));
+    }
+
+    // Caso 4: muestra el contenido de un fichero (solo dentro del directorio actual)
+    static int mostrar(String fichero) throws Exception {
+        Path base = Path.of("").toRealPath();
+        Path f = base.resolve(fichero).toRealPath();        // falla si no existe y resuelve enlaces simbólicos
+        if (!f.startsWith(base) || !Files.isRegularFile(f))
+            throw new SecurityException("Fichero fuera del directorio actual o no es un fichero normal");
+        List<String> comando = WIN ? List.of("cmd", "/c", "type", f.toString())
+                                   : List.of("cat", "--", f.toString());
+        Resultado r = ejecutar(comando, null, System.out::println);
+        if (r.ok()) System.out.println("Fichero mostrado correctamente");
+        return informar(r);
+    }
+
+    /** Traduce el resultado a un código de salida del programa (0 = bien). */
+    static int informar(Resultado r) {
+        if (r.timeout()) System.err.println("El comando superó el límite de " + LIMITE_SEGUNDOS + " s (pid " + r.pid() + ")");
+        else if (r.codigo() != 0) System.err.println("El comando falló con código " + r.codigo() + " (pid " + r.pid() + ")");
+        return r.ok() ? 0 : 1;
+    }
+
+    public static void main(String[] args) {
+        if (args.length < 1) {
+            System.err.println("Uso: java CodigoCorregido.java <1|2|3|4> [texto]");
+            System.exit(2);
+        }
+        String texto = args.length > 1 ? args[1] : "Ana";
+        try {
+            int salida = switch (args[0]) {
+                case "1" -> saludar(texto);
+                case "2" -> contarNumeros();
+                case "3" -> ordenar();
+                case "4" -> mostrar(texto);
+                default -> {
+                    System.err.println("Opción desconocida: " + args[0] + " (usa 1, 2, 3 o 4)");
+                    yield 2;
+                }
+            };
+            System.exit(salida);
+        } catch (NoSuchFileException e) {
+            System.err.println("Entrada rechazada: el fichero no existe");
+            System.exit(2);
+        } catch (IllegalArgumentException | SecurityException e) {
+            System.err.println("Entrada rechazada: " + e.getMessage());
+            System.exit(2);
+        } catch (IOException e) {
+            System.err.println("No se pudo ejecutar el comando: " + e.getMessage());
+            System.exit(1);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Interrumpido");
+            System.exit(1);
+        } catch (Exception e) {
+            System.err.println("Error inesperado: " + e);
+            System.exit(1);
+        }
+    }
+}

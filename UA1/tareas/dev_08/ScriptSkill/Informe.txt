@@ -1,0 +1,107 @@
+Tarea - Codigo con fallos usando la skill procesos-seguros-java
+Rafael Garcia (dev_08)
+
+Archivos de esta carpeta
+- CodigoConFallos.txt: el codigo original del profesor, tal cual.
+- CodigoCorregido.txt: el codigo ya arreglado.
+- Informe.txt: este documento, con lo que hice y los resultados de antes y de despues.
+
+Que hice
+
+Primero ejecute el programa tal cual en IntelliJ para ver que pasaba en cada caso y despues lei el codigo metodo a metodo para encontrar donde estaban los fallos. Luego le pase el codigo a la IA con la skill procesos-seguros-java para que lo arreglara siguiendo su lista de comprobacion, y revise yo lo que cambio y lo probe.
+
+Fallos que encontre
+
+Main:
+- Si lo ejecuto sin argumentos salta ArrayIndexOutOfBoundsException, porque usa args[0] sin comprobar que existe.
+- Si pongo una opcion que no es 1, 2, 3 o 4 no hace nada ni avisa, porque el switch no tiene default.
+
+Caso 1, saludar:
+- Funciona, pero el nombre se pega dentro de un comando que se lanza con "sh -c", asi que la shell interpreta lo que escriba el usuario. Con "Ana;whoami" se ejecuta tambien whoami: es una inyeccion de comandos.
+
+Caso 2, contarNumeros:
+- Se queda colgado. El waitFor() esta ANTES de leer la salida y seq saca un millon de lineas. El buffer de la tuberia se llena, el hijo se para esperando que alguien lea y el padre espera a que el hijo termine, asi que se bloquean los dos (deadlock).
+
+Caso 3, ordenar:
+- Tambien se queda colgado. Se escribe en la entrada de sort y se hace flush, pero nunca se cierra. sort no empieza a ordenar hasta que recibe el fin de la entrada (EOF), asi que se queda esperando para siempre.
+
+Caso 4, mostrar:
+- Con un fichero que no existe dice igualmente "Fichero mostrado correctamente", porque no se mira el codigo de salida de cat y el error de cat va por la salida de error, que no se lee.
+
+Como se ha arreglado
+
+- Los argumentos van separados en el ProcessBuilder y sin "sh -c". El nombre se valida antes (solo letras y espacios), asi no se puede inyectar nada. En el caso 4 se comprueba que el fichero esta dentro del directorio actual.
+- Un unico metodo ejecutar() lanza los cuatro casos: lee la salida mientras el proceso corre (hilo aparte) y mezcla stderr con stdout, asi no se llena el buffer y no se pierde el error (caso 2 y caso 4).
+- La entrada del hijo se cierra siempre despues de escribir (caso 3).
+- Se mira el codigo de salida y solo se dice "correctamente" si es 0 (caso 4).
+- Cada proceso tiene un tiempo maximo de 15 segundos; si se pasa se mata el proceso y tambien sus procesos hijos.
+- Se lee con el charset del sistema y no con UTF-8 fijo, para que los acentos salgan bien en Windows.
+- Funciona en Windows y en Linux, porque seq y cat no existen en Windows (alli uso powershell y type).
+- El main comprueba los argumentos, tiene default en el switch y devuelve un codigo de salida (0 bien, 1 fallo, 2 entrada rechazada).
+
+Resultado ANTES (CodigoConFallos, en Windows con Java 25)
+
+java CodigoConFallos 1 Ana
+    Hola Ana                                    (correcto)
+
+java CodigoConFallos 1 "Ana;whoami"
+    Hola Ana
+    Rafael                                      (FALLO: ejecuto whoami, inyeccion)
+
+java CodigoConFallos 2
+    (no imprime nada y no termina; hubo que matarlo a los 20 s)    (FALLO: deadlock)
+
+java CodigoConFallos 3
+    (no imprime nada y no termina; hubo que matarlo a los 20 s)    (FALLO: sort espera el EOF)
+
+java CodigoConFallos 4 MiniMonitor.java
+    (muestra el contenido del fichero)
+    Fichero mostrado correctamente              (correcto)
+
+java CodigoConFallos 4 noexiste.txt
+    Fichero mostrado correctamente              (FALLO: el fichero no existe y dice que esta bien)
+
+java CodigoConFallos
+    Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException:
+    Index 0 out of bounds for length 0          (FALLO: sin argumentos)
+
+Resultado DESPUES (CodigoCorregido, en Windows con Java 25)
+
+java CodigoCorregido 1 Ana
+    Hola Ana                                    (codigo de salida 0)
+
+java CodigoCorregido 1 "Ana;whoami"
+    Entrada rechazada: Nombre no valido (solo letras y espacios, maximo 30)
+                                                (codigo de salida 2, no ejecuta nada)
+
+java CodigoCorregido 2
+    Numeros generados: 1000000                  (codigo 0, tarda 1 s, ya no se cuelga)
+
+java CodigoCorregido 3
+    banana
+    manzana
+    pera                                        (codigo 0, ya ordena)
+
+java CodigoCorregido 4 MiniMonitor.java
+    (muestra el contenido del fichero)
+    Fichero mostrado correctamente              (codigo 0)
+
+java CodigoCorregido 4 noexiste.txt
+    Entrada rechazada: el fichero no existe     (codigo 2, ya no dice que esta bien)
+
+java CodigoCorregido
+    Uso: java CodigoCorregido.java <1|2|3|4> [texto]
+                                                (codigo 2, sin excepcion)
+
+java CodigoCorregido 9
+    Opcion desconocida: 9 (usa 1, 2, 3 o 4)     (codigo 2)
+
+Resumen
+
+Antes: 3 casos fallaban de verdad (inyeccion, dos cuelgues), 1 mentia sobre el resultado y el main petaba sin argumentos.
+Despues: los 4 casos funcionan, las entradas malas se rechazan con un mensaje y ninguno se queda colgado.
+
+Notas
+- Lo probe solo en Windows. La parte de Linux (seq, cat, echo) esta escrita pero no la he podido ejecutar.
+- Para ejecutar CodigoCorregido hace falta Java 16 o superior, porque usa un record.
+- Los resultados del apartado ANTES se capturaron con sh, seq, sort y cat de Git para Windows instalados en el PATH; en un Windows sin Git darian error de "no se encuentra el archivo" en lugar de colgarse.
