@@ -1,0 +1,29 @@
+Impresiones del codigo original:
+----------------------------------------------------------------------------------------------------------------
+caso 1: 
+    Lo que he vislumbrado yo mismo el echo y nombre estaba fuera
+    loque el agente a visto: Concatenaba el parámetro en "sh -c 'echo Hola ' + nombre".
+
+----------------------------------------------------------------------------------------------------------------
+caso 2: 
+    Lo que he vislumbrado: 
+    el codigo de espera acababa antes de ser leiodo y ademas el wait estaba antes del inputStream
+
+    loque el agente a visto: Hacía p.waitFor() ANTES de leer getInputStream().  
+
+----------------------------------------------------------------------------------------------------------------
+caso 3: 
+    Lo que he vislumbrado:  
+    estaba mal cerrado y ademas el p.getOutputStream() no cerraba
+
+    loque el agente a visto: Escribía en p.getOutputStream() pero NO lo cerraba 
+
+----------------------------------------------------------------------------------------------------------------
+caso 4: 
+    Lo que he vislumbrado: 
+    No verificaba getErrorStream() ni el código de salida: si "cat" fallaba,
+    imprimía igualmente "Fichero mostrado correctamente".
+
+    loque el agente a visto: Inseguridad: permitía rutas relativas arbitrarias (ej: "../../etc/passwd"). 
+    y que ademas no comprobaba getErrorStream() ni el código de salida: si "cat" fallaba,
+    imprimía igualmente "Fichero mostrado correctamente".
