@@ -1,0 +1,17 @@
+PID del proceso hijo: 267049
+------------------------------------------------
+1 - total 36
+2 - -rw-rw-r-- 1 juandi juandi 3147 oct  7 19:45 buenas_practicas.md
+3 - -rw-rw-r-- 1 juandi juandi  724 oct 14 19:59 informe_procesos.txt
+4 - -rw-rw-r-- 1 juandi juandi 3908 oct  7 19:45 INSTRUCCIONES_ENTREGAS.md
+5 - -rw-rw-r-- 1 juandi juandi  948 oct  7 19:45 nivel.md
+6 - drwxrwxr-x 3 juandi juandi 4096 oct  7 19:50 out
+7 - -rw-rw-r-- 1 juandi juandi 3145 oct  7 19:45 QUE_NO_SUBIR_AL_REPO.md
+8 - -rw-rw-r-- 1 juandi juandi 3001 oct  7 19:45 README.md
+9 - -rw-rw-r-- 1 juandi juandi  132 oct 14 18:33 salida_comando.txt
+10 - drwxrwxr-x 6 juandi juandi 4096 oct  7 19:45 UA1
+------------------------------------------------
+
+INFORME FINAL:
+Total de líneas leídas: 10
+Código de salida: 0 (Correcto)
