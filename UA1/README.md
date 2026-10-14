@@ -82,7 +82,7 @@ Y ahora ... ¿Entiendes lo que está pasando? ¿De verdad?
 ### **T2 - Tarea 2 - Programación de procesos en Java (I)**
 ##### **Criterios a), e), f), g), h)**
 ```
-Fecha de Entrega: xx/xx/2026 - 14:00:00
+Fecha de Entrega: 14/10/2026 - 21:00:00
 ```
 PROCESOS. Crea un programa Java que implemente las siguientes Funcionalidades Requeridas (FRs):
 
