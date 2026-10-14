@@ -1,0 +1,70 @@
+import java.io.IOException;
+
+public class Procesos {
+
+    public static void main(String[] args) {
+
+        // Si es el proceso hijo, lee el texto
+        if (args.length > 0 && args[0].equals("hijo")) {
+
+            StringBuilder texto = new StringBuilder();
+
+            try {
+                int caracter;
+
+                // Leer caracteres hasta encontrar *
+                System.out.println("Introduce un texto (termina con *):");
+
+                while ((caracter = System.in.read()) != -1) {
+                    if (caracter == '*') {
+                        break;
+                    }
+                    texto.append((char) caracter);
+                }
+
+                // Mostrar el texto introducido
+                System.out.println("Texto introducido: " + texto);
+
+            } catch (IOException e) {
+                System.out.println("Error al leer: " + e.getMessage());
+                System.exit(1);
+            }
+
+        } else {
+
+            // Crear un proceso hijo con ProcessBuilder
+            try {
+                ProcessBuilder pb = new ProcessBuilder(
+                        "java",
+                        "-cp",
+                        System.getProperty("java.class.path"),
+                        "Procesos",
+                        "hijo"
+                );
+
+                // Compartir la consola con el proceso hijo
+                pb.inheritIO();
+
+                // Ejecutar el proceso
+                Process p = pb.start();
+
+                // Esperar a que termine
+                int resultado = p.waitFor();
+
+                // Comprobar el resultado
+                if (resultado == 0) {
+                    System.out.println("Proceso terminado correctamente.");
+                } else {
+                    System.out.println("Error en el proceso: " + resultado);
+                }
+
+            } catch (IOException e) {
+                System.out.println("Error: " + e.getMessage());
+
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                System.out.println("Proceso interrumpido.");
+            }
+        }
+    }
+}

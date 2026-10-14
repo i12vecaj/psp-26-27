@@ -1,0 +1,156 @@
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
+import java.util.concurrent.*;
+
+public class CodigoConFallos {
+
+    // Ejecuta un proceso y controla su tiempo de ejecución
+    static void ejecutar(ProcessBuilder pb, String entrada) throws Exception {
+
+        // Unimos los errores con la salida normal
+        pb.redirectErrorStream(true);
+
+        Process p = pb.start();
+        System.out.println("PID del hijo: " + p.pid());
+
+        // Enviamos datos al hijo y cerramos su entrada
+        try (OutputStream salida = p.getOutputStream()) {
+            if (entrada != null) {
+                salida.write(entrada.getBytes(StandardCharsets.UTF_8));
+            }
+        }
+
+        // Leemos la salida en otro hilo para evitar bloqueos
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+        try {
+            Future<Integer> lectura = executor.submit(() -> {
+                int contador = 0;
+
+                try (BufferedReader br = new BufferedReader(
+                        new InputStreamReader(p.getInputStream(),
+                                StandardCharsets.UTF_8))) {
+
+                    String linea;
+
+                    while ((linea = br.readLine()) != null) {
+                        contador++;
+
+                        // Evitamos imprimir millones de líneas
+                        if (contador <= 100) {
+                            System.out.println(linea);
+                        }
+                    }
+                }
+
+                return contador;
+            });
+
+            // Esperamos un máximo de 15 segundos
+            if (!p.waitFor(15, TimeUnit.SECONDS)) {
+                p.destroy();
+
+                if (!p.waitFor(2, TimeUnit.SECONDS)) {
+                    p.destroyForcibly();
+                }
+
+                throw new IOException("Tiempo de espera superado");
+            }
+
+            int lineas = lectura.get(5, TimeUnit.SECONDS);
+            int codigo = p.exitValue();
+
+            System.out.println("Líneas leídas: " + lineas);
+            System.out.println("Código de salida: " + codigo);
+
+            if (codigo == 0) {
+                System.out.println("Proceso correcto");
+            } else {
+                System.out.println("El proceso ha fallado");
+            }
+
+        } finally {
+            if (p.isAlive()) {
+                p.destroyForcibly();
+            }
+
+            executor.shutdownNow();
+        }
+    }
+
+    // Caso 1: saludar al usuario
+    static void saludar(String nombre) throws Exception {
+
+        // No usamos sh -c para evitar inyección de comandos
+        ProcessBuilder pb = new ProcessBuilder(
+                "echo", "Hola", nombre
+        );
+
+        ejecutar(pb, null);
+    }
+
+    // Caso 2: contar números
+    static void contarNumeros() throws Exception {
+
+        ProcessBuilder pb = new ProcessBuilder(
+                "seq", "1", "1000000"
+        );
+
+        ejecutar(pb, null);
+    }
+
+    // Caso 3: ordenar palabras
+    static void ordenar() throws Exception {
+
+        ProcessBuilder pb = new ProcessBuilder("sort");
+
+        ejecutar(pb, "pera\nmanzana\nbanana\n");
+    }
+
+    // Caso 4: mostrar un fichero
+    static void mostrar(String fichero) throws Exception {
+
+        Path ruta = Paths.get(fichero).toAbsolutePath().normalize();
+
+        // Comprobamos que el fichero existe
+        if (!Files.isRegularFile(ruta)) {
+            throw new FileNotFoundException("No existe: " + fichero);
+        }
+
+        ProcessBuilder pb = new ProcessBuilder(
+                "cat", "--", ruta.toString()
+        );
+
+        ejecutar(pb, null);
+    }
+
+    public static void main(String[] args) {
+
+        try {
+            // Comprobamos que se ha indicado un caso
+            if (args.length == 0) {
+                System.out.println("Uso: java CodigoConFallos <1|2|3|4> [texto]");
+                return;
+            }
+
+            String texto = args.length > 1 ? args[1] : "Ana";
+
+            switch (args[0]) {
+                case "1" -> saludar(texto);
+                case "2" -> contarNumeros();
+                case "3" -> ordenar();
+                case "4" -> mostrar(texto);
+                default -> System.out.println("Opción no válida");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+// Se han corregido la inyección de comandos, los bloqueos al leer la salida
+// el cierre de los flujos
+// la comprobación de archivos y códigos de salida 
+// y se ha añadido control de errores y tiempos de espera.
