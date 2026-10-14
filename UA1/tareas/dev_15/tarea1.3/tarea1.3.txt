@@ -1,0 +1,32 @@
+Tarea 1.3 - Codigo con fallos
+Andres Martinez Cano (dev_15)
+
+Lo primero que hice fue ejecutar el programa tal cual para ver que pasaba en cada caso y luego lei el codigo de cada metodo para ver donde estaban los fallos. Despues le pase el codigo a la IA con la skill procesos-seguros-java para que lo arreglara siguiendo sus pautas.
+
+Fallos que vi
+
+Main sin argumentos: al ejecutarlo en IntelliJ sin poner nada salta un ArrayIndexOutOfBoundsException, porque usa args[0] sin comprobar si hay argumentos. Y si pones una opcion que no es 1, 2, 3 o 4 no hace nada ni avisa.
+
+Caso 1, saludar: al ejecutarlo funciona, pero leyendo el codigo vi que el nombre se pega dentro de un comando que se lanza con sh -c, asi que la shell interpreta lo que escribas. Con "Ana; whoami" se ejecuta tambien el whoami, o sea que se puede colar cualquier comando (inyeccion de comandos).
+
+Caso 2, contar numeros: se queda colgado y no termina. En el codigo el waitFor() esta antes de leer la salida, y como seq saca un millon de lineas se llena el buffer, el hijo espera a que alguien lea y el padre espera a que el hijo acabe, asi que se bloquean los dos.
+
+Caso 3, ordenar: tambien se queda colgado. Se escriben las palabras en la entrada de sort pero solo se hace flush, no se cierra, y sort no ordena hasta que se acaba la entrada.
+
+Caso 4, mostrar fichero: con un fichero que no existe dice igualmente "Fichero mostrado correctamente", porque no se mira el codigo de salida de cat y el error de cat va por la salida de error, que no se lee.
+
+Como se ha arreglado con la skill
+
+La skill tiene una lista de cosas que hay que comprobar siempre al lanzar procesos y una plantilla, EjecutorProcesos, que es la que se ha usado para lanzar los comandos de los cuatro casos. Lo que ha cambiado:
+- Los argumentos van separados en el ProcessBuilder y sin sh -c, y el nombre y la ruta del fichero se comprueban antes, asi ya no se puede inyectar nada.
+- Se leen la salida normal y la de error a la vez con dos hilos, asi no se llena el buffer y no se bloquea (caso 2).
+- Siempre se cierra la entrada del hijo despues de escribir (caso 3).
+- Se comprueba el codigo de salida y se enseña el error si falla (caso 4).
+- Cada proceso tiene un tiempo maximo de 30 segundos y si se pasa se mata.
+- Se muestra el pid, el codigo de salida y lo que ha tardado cada uno.
+- Funciona en Windows y en Linux, porque seq y cat no existen en Windows.
+- El main comprueba los argumentos y tiene un default en el switch.
+
+Pruebas
+
+Lo probe en mi ordenador: 1 Ana saluda bien y con "Ana; whoami" ya no ejecuta nada, el 2 cuenta 1000000 numeros sin colgarse, el 3 sale ordenado (banana, manzana, pera), el 4 con un fichero que existe lo enseña y con uno que no existe da el error y el codigo 1, y sin argumentos o con una opcion mala avisa.
