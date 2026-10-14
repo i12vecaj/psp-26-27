@@ -7,8 +7,8 @@ public class Ejemplo8 {
 
 		// Salida a consola
 		// Redirect.INHERIT indica que la entrada y salida del proceso
-		// será la misma que el proceso actual (padre)
-		pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);	    
+		// serï¿½ la misma que el proceso actual (padre)
+		pb.redirectOutput(ProcessBuilder.Redirect.PIPE);
 		Process p = pb.start();		
 	}
 }// Ejemplo9

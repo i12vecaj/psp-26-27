@@ -22,7 +22,6 @@ public class Ejemplo2 {
             e.printStackTrace();
         }
 
-        // COMPROBACION DE ERROR - 0 bien - 1 mal
         int exitVal;
         try {
             exitVal = p.waitFor();
