@@ -65,7 +65,7 @@ La evaluación de esta unidad didáctica estará basada en la entrega de las tar
 ### **T1 - Tarea 1 - Programación de Procesos en C**
 ##### **Criterios a), e), f), g), h)**
 ```
-AMPLIADO! Fecha de Entrega: xx/xx/2026 - 14:00:00
+Fecha de Entrega: 13/10/2026 - 23:59:00
 ```
 PROCESOS. Crea un único programa en C que implemente las siguientes Funcionalidades Requeridas (FRs):
 * FR1: cree un proceso (existirán en realidad dos procesos, uno padre y el otro hijo) - 1 punto
@@ -82,7 +82,7 @@ Y ahora ... ¿Entiendes lo que está pasando? ¿De verdad?
 ### **T2 - Tarea 2 - Programación de procesos en Java (I)**
 ##### **Criterios a), e), f), g), h)**
 ```
-Fecha de Entrega: xx/xx/2026 - 14:00:00
+Fecha de Entrega: 14/10/2026 - 21:00:00
 ```
 PROCESOS. Crea un programa Java que implemente las siguientes Funcionalidades Requeridas (FRs):
 
