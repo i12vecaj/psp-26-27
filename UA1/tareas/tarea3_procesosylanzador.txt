@@ -1,0 +1,51 @@
+import java.io.*;
+
+public class Lanzador {
+    public static void main(String[] args) {
+        try {
+            ProcessBuilder pb = new ProcessBuilder("java", "ProcesoHijo.java", "-5");
+            Process p = pb.start();
+            
+            int valor = p.waitFor();
+            
+            if (valor == 1) {
+                System.out.println("Devuelve 1: No hay argumentos");
+            } else if (valor == 2) {
+                System.out.println("Devuelve 2: El argumento es una cadena");
+            } else if (valor == 3) {
+                System.out.println("Devuelve 3: El numero es menor que 0");
+            } else if (valor == 0) {
+                System.out.println("Devuelve 0: Todo correcto");
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Ha habido un error");
+            e.printStackTrace();
+        }
+    }
+}
+
+
+public class ProcesoHijo {
+    public static void main(String[] args) {
+        // Si el número de argumentos es < 1 debe devolver 1
+        if (args.length < 1) {
+            System.exit(1);
+        }
+
+        // Si el argumento es un número entero menor que 0 debe devolver 3
+        //En cualquier otro caso debe devolver 0
+        try {
+            int numero = Integer.parseInt(args[0]);
+            if (numero < 0) {
+                System.exit(3);
+            }
+
+            // Si el argumento es una cadena debe devolver 2
+        } catch (NumberFormatException e) {
+            System.exit(2);
+        }
+
+        System.exit(0);
+    }
+}
