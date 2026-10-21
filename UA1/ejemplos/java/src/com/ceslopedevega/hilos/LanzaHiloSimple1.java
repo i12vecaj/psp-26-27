@@ -13,3 +13,4 @@ public class LanzaHiloSimple1 {
 		hilo3.start();
 	}
 }
+// Si se usa con run se ve el proceso pero si se usa con start se hace en "segundo plano"

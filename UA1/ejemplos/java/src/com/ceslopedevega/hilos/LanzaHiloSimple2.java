@@ -18,3 +18,4 @@ public class LanzaHiloSimple2 {
 		t3.start();
 	}
 }
+// hace el codigo en cascada sin lanzar primero los hilos

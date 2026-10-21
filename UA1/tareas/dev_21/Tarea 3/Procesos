@@ -1,0 +1,19 @@
+import java.io.IOException;
+
+Public class Procesos Implements Runnable{
+    public static void main(String[] args) {
+        if (args.length > 0 && args[0].equals("comprobar")) {
+            if (args.length < 2) {
+                System.exit(1;)
+            }
+
+            try{
+                int numero = Integer.parseInt(args[1]);
+
+                if (numero < 0) {
+                    System.exit(3);
+                }
+            }
+        }
+    }
+}
