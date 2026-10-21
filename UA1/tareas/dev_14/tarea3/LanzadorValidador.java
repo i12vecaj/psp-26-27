@@ -5,7 +5,7 @@
  * @author    Federico Talgat Lora Ortiz - 76391038+Fedes10@users.noreply.github.com (dev_14)
  * @copyright Copyright (c) 2026 Federico Talgat Lora Ortiz (Fedes10). Todos los derechos reservados.
  */
-package UA1.tareas.dev_14.tarea_3;
+package UA1.tareas.dev_14.tarea3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,13 +16,13 @@ import java.util.Arrays;
 import java.util.List;
 
 // Uso, desde la raiz del repo y compilando fuera de el:
-//   javac -d <carpeta> UA1/tareas/dev_14/tarea_3/*.java
-//   java -cp <carpeta> UA1.tareas.dev_14.tarea_3.LanzadorValidador 25
+//   javac -d <carpeta> UA1/tareas/dev_14/tarea3/*.java
+//   java -cp <carpeta> UA1.tareas.dev_14.tarea3.LanzadorValidador 25
 // Sin argumentos prueba todos los casos de la tarea uno detras de otro.
 public class LanzadorValidador {
 
     // clase que se ejecuta como proceso hijo
-    static final String CLASE_HIJO = "UA1.tareas.dev_14.tarea_3.ValidadorArgumentos";
+    static final String CLASE_HIJO = "UA1.tareas.dev_14.tarea3.ValidadorArgumentos";
 
     public static void main(String[] args) {
         // uso el mismo java y el mismo classpath que este programa, asi el hijo encuentra su clase

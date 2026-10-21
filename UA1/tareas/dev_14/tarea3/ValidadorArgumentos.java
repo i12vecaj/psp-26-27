@@ -5,7 +5,7 @@
  * @author    Federico Talgat Lora Ortiz - 76391038+Fedes10@users.noreply.github.com (dev_14)
  * @copyright Copyright (c) 2026 Federico Talgat Lora Ortiz (Fedes10). Todos los derechos reservados.
  */
-package UA1.tareas.dev_14.tarea_3;
+package UA1.tareas.dev_14.tarea3;
 
 import java.math.BigInteger;
 
