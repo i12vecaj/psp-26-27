@@ -1,0 +1,61 @@
+CAMBIOS A APLICAR A CodigoConFallos.java
+(siguiendo la skill 'procesos-seguros-java')
+==========================================
+1) VALIDACIÓN DE ARGUMENTOS (arreglo del AIOOBE)
+- Comprobar args.length == 0 antes de acceder a args[0]
+- Mostrar mensaje de uso si faltan argumentos
+- Añadir default en switch para opción inválida
+- Salir con código != 0 en caso de error
+
+Sugerencia (novato): si no me pasan parámetros, no intentes usar args[0].
+
+2) EVITAR SHELL Y CONCATENACIÓN (inyección + multiplataforma)
+- NO usar "sh", "-c" con cadena concatenada (ej. "echo Hola " + nombre)
+- Usar ProcessBuilder con lista de argumentos separados: "echo", "Hola", nombre
+- Para Windows: detectar SO y usar "cmd", "/c", "echo", ... solo si necesario
+- Si el dato viene del usuario/IA, NUNCA meterlo dentro de un comando shell
+
+Sugerencia (novato): piensa "cada cosa va por separado", no juntar todo en un String.
+
+3) LEER STREAMS ANTES DE ESPERAR (evitar bloqueo por buffer lleno)
+- En caso 2 (seq), leer TODO getInputStream() ANTES de p.waitFor()
+- Si se genera mucha salida, el pipe se llena y el proceso se queda colgado
+- Leer con BufferedReader hasta null
+- Capturar stderr también (o redirectErrorStream(true))
+
+Sugerencia (novato): "lee lo que te envía el hijo mientras/quando puedas, no esperes primero".
+
+4) CERRAR STDIN TRAS ESCRIBIR (EOF)
+- En caso 3 (sort), escribir con BufferedWriter sobre getOutputStream()
+- Cerrar el stream (try-with-resources) tras escribir para enviar EOF
+- Si no se cierra, sort sigue esperando más datos y se bloquea
+- flush() no basta siempre; cerrar es clave
+
+Sugerencia (novato): "cuando acabes de darle datos con write, dile adiós cerrando".
+
+5) TIMEOUTS + DESTRUCCIÓN SEGURA
+- Usar waitFor(timeout, TimeUnit) en lugar de waitFor() sin límite
+- Si no termina: destroy(), esperar un poco, destroyForcibly() si sigue vivo
+- Registrar/mostrar error si excede timeout
+
+Sugerencia (novato): "pon un reloj, si se pasa, mátalo sin dramas".
+
+6) MULTIPLATAFORMA Y ALTERNATIVAS JAVA
+- Detectar System.getProperty("os.name")
+- "seq"/"sort"/"cat" NO existen en Windows cmd nativo
+- Caso 4: mejor leer fichero con Files.newBufferedReader (Java puro) que llamar a "cat"
+- Comprobar existencia, regular file, permisos de lectura
+
+Sugerencia (novato): "si puedes hacerlo con Java, no llames a un comando del sistema".
+
+7) ROBUSTEZ EXTRA
+- Comprobar código de salida (p.exitValue() == 0)
+- Validar entradas (null/blank)
+- Usar StandardCharsets.UTF_8
+- try-with-resources para cerrar readers/writers
+- redirectErrorStream(true) para capturar todo junto si no separas stdout/stderr
+
+Sugerencia (novato): "espera lo peor: datos vacíos, fichero que no existe, comando que falla".
+
+ESPACIO PARA MIS COMENTARIOS:
+Me había percatado de algunos errores de no comprobar nullpointers, el try(){} sin cerrarse en el 4 pero no había pensado en el peligro de "Si el dato viene del usuario/IA, NUNCA meterlo dentro de un comando Shell". Me ha gustado ver como es importante tanto que el programa funcione como que sea "seguro" de usar o mas robusto
