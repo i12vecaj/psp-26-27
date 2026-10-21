@@ -5,7 +5,7 @@ public class AVer {
     /**
      * Lanza el programa Que es*/
     static void main(String[] args) throws IOException, InterruptedException {
-        String path = "C:\\Users\\Martín\\OneDrive\\Escritorio\\PSP\\psp-26-27\\UA1\\tareas\\dev_11\\Tarea3\\out\\production\\Tarea3";
+        String path = System.getProperty("java.class.path");
         Scanner sc = new Scanner(System.in);
         System.out.println("Escribe un numero o cadena y te detecto lo que es");
         String cosa = sc.nextLine();
