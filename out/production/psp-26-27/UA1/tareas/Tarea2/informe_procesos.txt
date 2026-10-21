@@ -1,8 +1,8 @@
-PID del proceso hijo: 267049
+PID del proceso hijo: 268640
 ------------------------------------------------
 1 - total 36
 2 - -rw-rw-r-- 1 juandi juandi 3147 oct  7 19:45 buenas_practicas.md
-3 - -rw-rw-r-- 1 juandi juandi  724 oct 14 19:59 informe_procesos.txt
+3 - -rw-rw-r-- 1 juandi juandi  796 oct 14 20:01 informe_procesos.txt
 4 - -rw-rw-r-- 1 juandi juandi 3908 oct  7 19:45 INSTRUCCIONES_ENTREGAS.md
 5 - -rw-rw-r-- 1 juandi juandi  948 oct  7 19:45 nivel.md
 6 - drwxrwxr-x 3 juandi juandi 4096 oct  7 19:50 out
