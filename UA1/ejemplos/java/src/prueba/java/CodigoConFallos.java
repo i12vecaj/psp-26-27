@@ -1,5 +1,8 @@
 package prueba.java;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 public class CodigoConFallos {
     // Caso 1: saluda al nombre que escribe el usuario
     static void saludar(String nombre) throws Exception {
