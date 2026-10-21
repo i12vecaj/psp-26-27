@@ -96,7 +96,7 @@ PROCESOS. Crea un programa Java que implemente las siguientes Funcionalidades Re
 ### **T3 - Tarea 3 - Programación de procesos en Java (II)**
 ##### **Criterios a), e), f), g), h)**
 ```
-Fecha de Entrega: xx/xx/2026 - 14:00:00
+Fecha de Entrega: 27/10/2026 - 23:59:00
 ```
 PROCESOS. Crea un programa en Java que admita argumentos desde main() y devuelva con System.exit() los siguientes valores:
 
