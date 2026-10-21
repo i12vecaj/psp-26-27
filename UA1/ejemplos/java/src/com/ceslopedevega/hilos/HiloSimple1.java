@@ -17,7 +17,8 @@ public class HiloSimple1 extends Thread {
 			System.out.println("Iteración " + i + " dentro del hilo " + id);
 			try 
 			{
-				Thread.sleep(1000);
+
+                Thread.sleep(1000);
 			} 
 			catch (InterruptedException e) 
 			{

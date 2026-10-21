@@ -1,8 +1,7 @@
 package com.ceslopedevega.hilos;
 
 public class LanzaHiloSimple2 {
-	public static void main (String[] args)
-	{
+	public static void main (String[] args) throws InterruptedException {
 		HiloSimple2 hilo1 = new HiloSimple2(1, 10);
 		HiloSimple2 hilo2 = new HiloSimple2(2, 4);
 		HiloSimple2 hilo3 = new HiloSimple2(3, 5);
@@ -15,6 +14,7 @@ public class LanzaHiloSimple2 {
 		// Se lanzan los hilos
 		t1.start();
 		t2.start();
+        t2.join(5000);
 		t3.start();
 	}
 }
