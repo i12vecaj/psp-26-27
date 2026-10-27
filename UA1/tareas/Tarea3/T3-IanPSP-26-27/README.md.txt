@@ -1,0 +1,1 @@
+Buenas tardes josedavid, pablo me ha enseñado la manera que el ha hecho esta tarea y me he guiado con la suya. El me ha explicado como funciona y como  replicarla. Llevo desconectado estos dias ya que llevo sin portatil casi una semana. Ya por fin me lo entregaron ayer asi que he termiando ya la tarea y ya si que si apartir de mañana 0 distracciones :D
