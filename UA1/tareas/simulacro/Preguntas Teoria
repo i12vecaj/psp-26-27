@@ -1,0 +1,8 @@
+Responde cada pregunta con tus palabras, en unas 5 líneas, sin apuntes (7 minutos por pregunta).
+
+1.¿Qué diferencias hay entre un proceso y un hilo, y cómo se relacionan?
+Un proceso se está ejecutando y tiene su propia memoria y recursos. Un hilo es una parte de ese proceso que realiza una tarea.
+2.¿Qué es la programación concurrente y qué problemas plantea (exclusión mutua y condición de sincronización)? Pon un ejemplo de cada uno.
+La programación concurrente es cuando varias tareas se ejecutan a la vez, los problemas son exclusion mutua que es que dos hilos quieren usar el mismo dato a la vez y sincronizacion que es que un hilo tiene que esperar a que el otro termine
+3.¿Qué diferencias hay entre programación paralela y programación distribuida? Ventajas e inconvenientes de cada una.
+la programacion paralela es que varios procesos se ejecutan a la vez, esto hace que sea mas rapida pero qyue consuma menos recursos y la distribuida es que varios ordenadores trabajan juntos, se puden repartir el trabajo pero puedes tener problemas de conexion
