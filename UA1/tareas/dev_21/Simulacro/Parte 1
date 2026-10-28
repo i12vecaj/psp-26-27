@@ -1,0 +1,49 @@
+Parte 1 · Calentamiento (10 min)
+Escribe V o F:
+
+start() ejecuta la tarea en el hilo main.
+Falso, run lo ejecuta directamente en el main en cambia start lo deriva el hilo padre
+
+Programación concurrente y programación paralela son lo mismo.
+Falso, no son lo mismo pues la concurrente se basa en ejecutar varias tareas al mismo tiempo aunque acaben
+en un mismo sitio mientras que la paralela se base en ejecutar de forma literal varias tareas al mismo tiempo
+aunque se necesiten mas nucleos
+
+Dos hilos del mismo proceso comparten memoria.
+Verdadero, si están en el mismo proceso comparten la misma memoria
+
+getInputStream() de un Process es lo que el hijo recibe.
+Falso, el getInputStream es lo que el Proceso padre recibe
+
+waitFor() bloquea al padre hasta que el hijo termina.
+Verdadero
+
+Crear un hilo es más costoso que crear un proceso.
+Falso, crear un hilo es mas barato e incluso rapido
+
+Tres hilos de 10, 4 y 5 segundos lanzados con start() tardan 19 segundos en total.
+Falso, tardan 10 segundos
+
+Internet es un ejemplo típico de programación distribuida.
+Verdadero
+
+Por convenio, un código de salida distinto de 0 indica error.
+Verdadero, los numeros desde el 1 al 255 significan error o que hay algo raro
+
+Un mismo objeto Thread se puede arrancar dos veces con start().
+Falso, no se puede lanzar dos veces un mismo objeto Thread
+
+## Parte 1 · Verdadero o falso
+
+| # | Resp. | Por qué |
+|---|---|---|
+| 1 | **F** | Eso lo hace `run()`. `start()` crea un hilo nuevo. |
+| 2 | **F** | Concurrente: instrucciones intercaladas. Paralela: varias CPU a la vez. |
+| 3 | **V** | Los hilos comparten la memoria del proceso. |
+| 4 | **F** | Es lo que el hijo **imprime**. Lo que recibe se envía por `getOutputStream()`. |
+| 5 | **V** | |
+| 6 | **F** | Crear un hilo es más barato que crear un proceso. |
+| 7 | **F** | Tardan unos 10 s (lo que dura el más largo), porque van a la vez. |
+| 8 | **V** | |
+| 9 | **V** | |
+| 10 | **F** | El segundo `start()` lanza `IllegalThreadStateException`: un hilo solo se arranca una vez. |

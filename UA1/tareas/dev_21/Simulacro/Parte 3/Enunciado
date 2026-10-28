@@ -1,0 +1,27 @@
+Parte 3 · Laboratorio Java (35 min)
+Para cada reto: 1) escribe tu predicción, 2) programa, 3) ejecuta y anota qué ha pasado, 4) si no coincide, explica por qué. Si te atascas, usa las pistas por orden. Los programas Eco y Espera están en material/.
+
+Reto 1 · Leer la salida de un proceso (8 min)
+Enunciado: lanza java -version desde Java y muestra lo que imprime, junto con su código de salida. Predice: ¿lo leerás con getInputStream()?
+
+Pista 1: new ProcessBuilder("java", "-version").start().
+Pista 2: mira también getErrorStream(); el código lo da waitFor().
+Ampliación: lanza un comando que no exista y captura la excepción. ¿Qué mensaje da?
+Reto 2 · Enviar datos al hijo (10 min)
+Enunciado: el programa Eco lee líneas de su entrada hasta recibir fin y las devuelve en mayúsculas. Haz un padre que le envíe hola, mundo y fin, y muestre lo que responde. Predice: ¿qué pasa si no envías fin ni cierras el flujo?
+
+Pista 1: getOutputStream() envuelto en un PrintWriter con autoflush.
+Pista 2: haz close() al terminar. Para lanzar Eco, usa "java", "-cp", System.getProperty("java.class.path"), "Eco".
+Ampliación: espera con waitFor(3, TimeUnit.SECONDS) y, si no termina, destroy().
+Reto 3 · Secuencial frente a paralelo (10 min)
+Enunciado: Espera duerme los segundos que le indiques. Lanza dos hijos de 2 s: primero uno tras otro, y luego los dos a la vez. Mide el tiempo de cada versión. Predice: ¿cuánto tardará cada una?
+
+Pista 1: System.currentTimeMillis() antes y después.
+Pista 2: en paralelo, haz start() de los dos antes del primer waitFor().
+Ampliación: ¿cuánto tardan 3 hijos de 2 s en paralelo?
+Reto 4 · Hilos con Runnable y join() (7 min)
+Enunciado: crea 3 hilos que duerman 1, 2 y 3 segundos e impriman su nombre al acabar. El main debe imprimir cuánto ha tardado en total cuando terminen los tres. Predice: ¿cuánto tarda? ¿Y si pones el join() justo después de cada start()?
+
+Pista 1: una clase que implemente Runnable y reciba los segundos.
+Pista 2: guarda los hilos en un array y haz los join() en un segundo bucle.
+Ampliación: quita los join(). ¿Qué imprime ahora el main y cuándo?

@@ -1,0 +1,29 @@
+Parte 2 · Teoría (30 min)
+Responde cada pregunta con tus palabras, en unas 5 líneas, sin apuntes (7 minutos por pregunta).
+
+¿Qué diferencias hay entre un proceso y un hilo, y cómo se relacionan?
+Un proceso es su propio ente por lo tanto este mismo posee su propia memoria y caracteristicas propias
+en cambio un hilo deriva de un proceso por lo tanto comparte todas esas caracteristicas y memoria de su padre (proceso)
+
+¿Qué es la programación concurrente y qué problemas plantea (exclusión mutua y condición de sincronización)? Pon un ejemplo de cada uno.
+La programación concurrente ejecuta múltiples tareas simultáneamente compartiendo recursos y esta misma plantea la exclusión mutua (evitar que dos hilos modifiquen lo mismo a la vez, como dos personas intentando retirar dinero del mismo saldo bancario simultáneamente) y la condición de sincronización (coordinar el orden de las tareas, como un hilo que debe esperar a que otro descargue un archivo antes de poder procesarlo).
+
+¿Qué diferencias hay entre programación paralela y programación distribuida? Ventajas e inconvenientes de cada una.
+La programación paralela se basa en la ejecución de varios programas al mismo tiempo atraves de diferentess nucleos para ellos, por ende no depende de hilos, en cambio la distribuida se basa en dividir una tarea o sistema en múltiples partes o nodos conectados por internet
+
+## Parte 2 · Teoría (ideas esenciales)
+
+**Proceso frente a hilo**
+- Proceso: programa en ejecución con su **propio espacio de memoria**; se comunica mediante mecanismos del sistema operativo.
+- Hilo: "proceso ligero" **dentro** de un proceso; **comparte** memoria y contexto con los demás hilos.
+- Crear un hilo es más rápido y comunicar hilos no necesita al núcleo. Un proceso puede contener varios hilos.
+- En Java: `ProcessBuilder` crea procesos; `Thread` y `Runnable` crean hilos.
+
+**Programación concurrente y sus problemas**
+- Varias tareas cuyas instrucciones se **intercalan**; pueden colaborar o competir por recursos; el comportamiento es **indeterminista**.
+- **Exclusión mutua:** varios hilos modifican a la vez un dato compartido (por ejemplo un contador o una cuenta) y se pierden actualizaciones. Se protege con una sección crítica (`synchronized`).
+- **Condición de sincronización:** un proceso necesita que otro termine o produzca algo antes de seguir (por ejemplo, el padre espera con `waitFor()` o `join()`).
+
+**Paralela frente a distribuida**
+- Paralela: un programa dividido en partes que corren en **varias CPU** de una máquina. + Menos tiempo, problemas complejos. − Más difícil de programar, más consumo, sincronización compleja.
+- Distribuida: componentes en **equipos distintos conectados por red** (Internet, cloud; sockets, RPC, RMI). + Compartir recursos, crecimiento incremental, alta disponibilidad. − Más complejidad, fallos de red, seguridad (DDoS). No hay reloj global y los fallos son independientes.
