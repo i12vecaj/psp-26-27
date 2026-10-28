@@ -1,0 +1,26 @@
+## Parte 2 · Teoría (30 min)
+
+Responde cada pregunta con tus palabras, en unas 5 líneas, **sin apuntes** (7 minutos por pregunta).
+
+1. ¿Qué diferencias hay entre un **proceso** y un **hilo**, y cómo se relacionan?
+
+el proceso es el programa completo ejecutandose y el hilo es una pequeña tarea dentro del proceso,
+la relacion que tiene es como si el proceso fuera un contenedor y los hilos son los trabajadores que hay dentro
+un proceso puede tener 1 o muchos hilos
+
+2. ¿Qué es la **programación concurrente** y qué problemas plantea (exclusión mutua y condición de sincronización)? Pon un ejemplo de cada uno.
+
+En esta pregunta he tenido que ayudarme de los apuntes de clase
+
+la programacion concurrente es la que permite que varios procesos ocurran al mismo tiempo
+La exclusion mutua es cuando dos hilos chocan por el mismo recurso y uno debe bloquear al otro,
+y la sincronizacion es cuando un hilo se detiene a esperar que otro termine su tarea para poder seguir.
+
+3. ¿Qué diferencias hay entre **programación paralela** y **programación distribuida**? Ventajas e inconvenientes de cada una.
+
+-Para esta pregunta he usado el PDF de clase
+
+La programacion paralela es usar varios nucleos en una sola PC compartiendo RAM para ganar velocidad,
+y la programacion distribuida es usar varias PC conectadas por red con memorias separadas para ganar potencia y escala
+
+---

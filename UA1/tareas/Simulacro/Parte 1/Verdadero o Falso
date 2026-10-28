@@ -1,0 +1,16 @@
+## Parte 1 · Calentamiento (10 min)
+
+Escribe V o F:
+
+1. `start()` ejecuta la tarea en el hilo `main`. ------> F
+2. Programación concurrente y programación paralela son lo mismo. ------> F
+3. Dos hilos del mismo proceso comparten memoria. ------> V
+4. `getInputStream()` de un `Process` es lo que el hijo recibe. ------> F
+5. `waitFor()` bloquea al padre hasta que el hijo termina. ------> V
+6. Crear un hilo es más costoso que crear un proceso. ------> F
+7. Tres hilos de 10, 4 y 5 segundos lanzados con `start()` tardan 19 segundos en total. ------> F
+8. Internet es un ejemplo típico de programación distribuida. ------> V
+9. Por convenio, un código de salida distinto de 0 indica error. ------> V
+10. Un mismo objeto `Thread` se puede arrancar dos veces con `start()`. F
+
+---
