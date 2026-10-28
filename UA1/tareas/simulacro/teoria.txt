@@ -1,0 +1,4 @@
+Parte 2 · Teoría (resumen)
+Un proceso es un programa en ejecución con su propia memoria; un hilo es una línea de ejecución dentro de un proceso, y varios hilos de un mismo proceso comparten su memoria.
+La concurrencia es que varias tareas avancen “a la vez” (aunque sea intercalado). Problemas exclusión mutua (dos hilos tocando el mismo dato a la vez, ej. dos hilos sumando a una misma variable sin sincronizar) y condición de sincronización (un hilo necesita esperar a que otro termine algo antes de seguir, ej. un consumidor esperando a que el productor deje un dato).
+Paralela varias tareas se ejecutan físicamente a la vez en distintos núcleos de la misma máquina. Distribuida las tareas se reparten entre máquinas distintas conectadas por red. Ventaja de paralela menos latencia de comunicación; inconveniente limitada por los núcleos disponibles. Ventaja de distribuida escalabilidad casi ilimitada; inconveniente latencia y fallos de red.
