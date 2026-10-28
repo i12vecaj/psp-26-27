@@ -1,0 +1,19 @@
+1. start() ejecuta la tarea en el hilo main. FALSO
+
+2. Programación concurrente y programación paralela son lo mismo. FALSO
+
+3. Dos hilos del mismo proceso comparten memoria. VERDADERO
+
+4. getInputStream() de un Process es lo que el hijo recibe.  VERDADERO
+
+5. waitFor() bloquea al padre hasta que el hijo termina.  VERDADERO
+
+6. Crear un hilo es más costoso que crear un proceso. FALSO
+
+7. Tres hilos de 10, 4 y 5 segundos lanzados con start() tardan 19 segundos en total. FALSO
+
+8. Internet es un ejemplo típico de programación distribuida. VERDADERO
+ 
+9. Por convenio, un código de salida distinto de 0 indica error. FALSO
+
+10. Un mismo objeto Thread se puede arrancar dos veces con start().FALSO
