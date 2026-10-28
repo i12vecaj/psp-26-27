@@ -1,0 +1,13 @@
+Responde cada pregunta con tus palabras, en unas 5 líneas, sin apuntes (7 minutos por pregunta).
+
+¿Qué diferencias hay entre un proceso y un hilo, y cómo se relacionan?
+
+- 
+
+¿Qué es la programación concurrente y qué problemas plantea (exclusión mutua y condición de sincronización)? Pon un ejemplo de cada uno.
+
+- 
+
+¿Qué diferencias hay entre programación paralela y programación distribuida? Ventajas e inconvenientes de cada una.
+
+- 

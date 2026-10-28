@@ -1,0 +1,29 @@
+Escribe V o F:
+
+start() ejecuta la tarea en el hilo main. --> F
+Programación concurrente y programación paralela son lo mismo. --> F
+Dos hilos del mismo proceso comparten memoria. --> V
+getInputStream() de un Process es lo que el hijo recibe. --> V
+waitFor() bloquea al padre hasta que el hijo termina. --> V
+Crear un hilo es más costoso que crear un proceso. --> F
+Tres hilos de 10, 4 y 5 segundos lanzados con start() tardan 19 segundos en total. --> V
+Internet es un ejemplo típico de programación distribuida. --> v
+Por convenio, un código de salida distinto de 0 indica error. --> F
+Un mismo objeto Thread se puede arrancar dos veces con start(). --> F
+
+## Parte 1 · Verdadero o falso
+
+| # | Resp. | Por qué |
+|---|---|---|
+| 1 | **F** | Eso lo hace `run()`. `start()` crea un hilo nuevo. |
+| 2 | **F** | Concurrente: instrucciones intercaladas. Paralela: varias CPU a la vez. |
+| 3 | **V** | Los hilos comparten la memoria del proceso. |
+| 4 | **F** | Es lo que el hijo **imprime**. Lo que recibe se envía por `getOutputStream()`. |
+| 5 | **V** | |
+| 6 | **F** | Crear un hilo es más barato que crear un proceso. |
+| 7 | **F** | Tardan unos 10 s (lo que dura el más largo), porque van a la vez. |
+| 8 | **V** | |
+| 9 | **V** | |
+| 10 | **F** | El segundo `start()` lanza `IllegalThreadStateException`: un hilo solo se arranca una vez. |
+
+TOTAL= 7/10
