@@ -1,0 +1,27 @@
+NOMBRE: Federico Talgat Lora Ortiz (Fedes10)
+FECHA: 29/10/2026
+
+PARTE 3 · LABORATORIO. PREDICCIÓN Y RESULTADO DE CADA RETO
+
+Reto 1 · Leer la salida de un proceso
+Predicción: java -version no sale por getInputStream().
+Resultado: no sale nada por getInputStream(). Todo sale por getErrorStream() y el código de salida es 0.
+Con un comando que no existe salta IOException: Cannot run program "comandoquenoexiste": CreateProcess error=2.
+Por qué: java -version escribe la versión en la salida de error.
+
+Reto 2 · Enviar datos al hijo
+Predicción: Eco responde HOLA y MUNDO. Sin fin ni close() el hijo se queda esperando.
+Resultado: responde HOLA y MUNDO y termina con código 0. Sin fin ni close(), a los 3 segundos sigue vivo y hay que
+cortarlo con destroy().
+Por qué: Eco lee hasta recibir fin o hasta que se cierra su entrada.
+
+Reto 3 · Secuencial frente a paralelo
+Predicción: unos 4 segundos uno tras otro y unos 2 segundos a la vez.
+Resultado: 4452 ms uno tras otro, 2286 ms los dos a la vez y 2295 ms con tres a la vez.
+Por qué: a la vez los hijos duermen al mismo tiempo. Hay que hacer todos los start() antes del primer waitFor().
+
+Reto 4 · Hilos con Runnable y join()
+Predicción: unos 3 segundos, lo que tarda el más largo.
+Resultado: 3002 ms con los join() en un segundo bucle y 6028 ms con el join() justo después de cada start().
+Sin join() el main termina a los 0 ms y los hilos acaban después.
+Por qué: el join() dentro del mismo bucle hace esperar a cada hilo antes de arrancar el siguiente.

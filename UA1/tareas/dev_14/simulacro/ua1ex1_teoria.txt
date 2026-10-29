@@ -1,0 +1,47 @@
+NOMBRE: Federico Talgat Lora Ortiz (Fedes10)
+FECHA: 29/10/2026
+
+PARTE TEÓRICA (25 minutos, sin acceso a internet)
+
+a) Definición de programación concurrente. 1 punto.
+
+Es cuando un programa tiene varias tareas en marcha a la vez. Sus instrucciones se van intercalando en la CPU,
+aunque solo haya un núcleo, y las tareas pueden colaborar entre ellas o competir por los mismos recursos. Por eso
+el resultado puede cambiar de una ejecución a otra si no se controla.
+
+b) Diferencias entre un hilo y un proceso, y cómo se relacionan. 3 puntos.
+
+Un proceso es un programa en ejecución. Tiene su propia memoria y sus recursos, y lo crea y lo controla el sistema
+operativo. Para hablar con otro proceso necesita al sistema operativo, por ejemplo con tuberías o con sus flujos de
+entrada y salida.
+Un hilo es una parte de un proceso que se ejecuta por su cuenta, por eso se le llama proceso ligero. Los hilos de un
+mismo proceso comparten su memoria, así que se comunican más fácil, pero hay que vigilar que no pisen los datos.
+Crear un hilo cuesta mucho menos que crear un proceso.
+Se relacionan en que todo proceso tiene al menos un hilo, el principal (en Java el main), y puede tener muchos más.
+En Java los procesos se lanzan con ProcessBuilder y los hilos con Thread y Runnable.
+
+c) Problemas de la programación concurrente y un ejemplo de cada uno. 3 puntos.
+
+Exclusión mutua: cuando dos tareas usan a la vez un recurso que solo admite una, se pisan y el dato queda mal. Ese
+trozo de código es la sección crítica y solo puede estar dentro una tarea a la vez.
+Ejemplo: dos hilos suman 1 a la vez a la misma variable contador. Si no se protege con synchronized, se pierden
+sumas y al final el contador vale menos de lo que debería.
+
+Condición de sincronización: una tarea no puede seguir hasta que otra haya hecho algo antes.
+Ejemplo: el padre tiene que esperar con waitFor() a que el hijo termine para saber su código de salida. Con hilos
+pasa lo mismo con join(). Otro caso es un consumidor que no puede sacar nada de un buffer vacío hasta que el
+productor meta algo.
+
+d) Diferencias entre programación paralela y programación distribuida, con ventajas e inconvenientes. 3 puntos.
+
+Programación paralela: un problema se divide en partes que se ejecutan a la vez en varios núcleos o CPU de la misma
+máquina.
+Ventajas: tarda menos y permite resolver problemas grandes.
+Inconvenientes: es más difícil de programar, gasta más y sincronizar los datos es más complicado.
+
+Programación distribuida: las partes del programa están en varios ordenadores conectados por una red, como Internet
+o la nube, y se comunican con mensajes (sockets, RPC o RMI).
+Ventajas: se comparten recursos y datos, el sistema puede crecer poco a poco añadiendo equipos y si cae uno los
+demás siguen.
+Inconvenientes: es más complejo, la red puede fallar o perder mensajes, hay más problemas de seguridad, no hay un
+reloj común y cada equipo puede fallar por su cuenta.

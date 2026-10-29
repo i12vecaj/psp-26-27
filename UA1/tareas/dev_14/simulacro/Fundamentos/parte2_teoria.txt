@@ -1,0 +1,26 @@
+NOMBRE: Federico Talgat Lora Ortiz (Fedes10)
+FECHA: 29/10/2026
+
+PARTE 2 · TEORÍA
+
+1. ¿Qué diferencias hay entre un proceso y un hilo, y cómo se relacionan?
+
+Un proceso es un programa en ejecución con su propia memoria, y lo gestiona el sistema operativo. Un hilo va dentro
+de un proceso y comparte su memoria con los demás hilos de ese proceso. Crear y cambiar de hilo es más rápido que
+con procesos, y los hilos se comunican sin pasar por el sistema operativo, pero hay que sincronizarlos. Todo proceso
+tiene por lo menos un hilo y puede tener varios.
+
+2. ¿Qué es la programación concurrente y qué problemas plantea? Un ejemplo de cada uno.
+
+Es tener varias tareas en marcha a la vez que se reparten la CPU y los recursos, con sus instrucciones intercaladas.
+Exclusión mutua: un recurso compartido solo lo puede usar una tarea a la vez. Ejemplo, dos hilos que ingresan dinero
+a la vez en la misma cuenta y se pierde un ingreso si no se usa synchronized.
+Condición de sincronización: una tarea espera a que otra haga algo. Ejemplo, el padre espera con waitFor() a que
+el hijo acabe para leer su código de salida.
+
+3. ¿Qué diferencias hay entre programación paralela y programación distribuida? Ventajas e inconvenientes.
+
+La paralela reparte el trabajo entre varios núcleos de una misma máquina. Es más rápida, pero cuesta más programarla
+y sincronizarla. La distribuida reparte el trabajo entre varios equipos conectados por red, como Internet. Permite
+compartir recursos y crecer añadiendo equipos, pero depende de la red, es más compleja, menos segura y no hay un
+reloj común.

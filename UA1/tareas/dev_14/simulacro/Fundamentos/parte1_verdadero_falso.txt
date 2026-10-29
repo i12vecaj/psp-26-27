@@ -1,0 +1,35 @@
+NOMBRE: Federico Talgat Lora Ortiz (Fedes10)
+FECHA: 29/10/2026
+
+PARTE 1 · CALENTAMIENTO. VERDADERO O FALSO
+
+1. start() ejecuta la tarea en el hilo main.
+   F. start() crea un hilo nuevo y la tarea va en ese hilo. Si se llama a run() a mano, va en el main.
+
+2. Programación concurrente y programación paralela son lo mismo.
+   F. En la concurrente las tareas se intercalan aunque haya un solo núcleo. En la paralela van a la vez de verdad
+   en varios núcleos.
+
+3. Dos hilos del mismo proceso comparten memoria.
+   V. Comparten la memoria del proceso.
+
+4. getInputStream() de un Process es lo que el hijo recibe.
+   F. Es lo que el hijo escribe y el padre lee. Lo que el hijo recibe se manda con getOutputStream().
+
+5. waitFor() bloquea al padre hasta que el hijo termina.
+   V. Y devuelve el código de salida del hijo.
+
+6. Crear un hilo es más costoso que crear un proceso.
+   F. Es al revés, crear un hilo es más barato.
+
+7. Tres hilos de 10, 4 y 5 segundos lanzados con start() tardan 19 segundos en total.
+   F. Van a la vez, así que tardan unos 10 segundos, lo que dura el más largo.
+
+8. Internet es un ejemplo típico de programación distribuida.
+   V.
+
+9. Por convenio, un código de salida distinto de 0 indica error.
+   V.
+
+10. Un mismo objeto Thread se puede arrancar dos veces con start().
+    F. El segundo start() lanza IllegalThreadStateException. Un hilo solo se arranca una vez.
