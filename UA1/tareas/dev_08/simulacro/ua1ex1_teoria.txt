@@ -1,0 +1,38 @@
+NOMBRE: Rafael García Adamuz
+FECHA: 29/10/2026
+
+PARTE TEÓRICA
+
+a) Definición de proceso. 1 punto.
+
+Un proceso es un programa en ejecución. El programa es algo estático (un fichero en el disco) y el proceso es ese programa ya cargado en memoria, con su propio espacio de direcciones, su PID, su estado y los recursos que le da el sistema operativo (ficheros abiertos, CPU, memoria).
+
+b) Utilizando tus propias palabras, indica las diferencias entre un proceso y un hilo y cómo se relacionan. 3 puntos.
+
+Un proceso es una unidad pesada: tiene su propia memoria y sus propios recursos, y dos procesos no comparten nada salvo que usen un mecanismo de comunicación (tuberías, sockets, ficheros). Un hilo es una unidad de ejecución más ligera que vive dentro de un proceso, y todos los hilos del mismo proceso comparten su memoria, su código y sus ficheros abiertos; lo único propio de cada hilo es su pila y su contador de programa.
+
+Por eso crear un hilo y cambiar entre hilos cuesta menos que con procesos, y comunicar hilos es muy fácil (variables compartidas), pero también más peligroso, porque si dos hilos tocan el mismo dato a la vez pueden estropearlo. Un proceso falla sin afectar a los demás, mientras que un hilo que falla puede tirar abajo a todo el proceso.
+
+Se relacionan en que todo proceso tiene como mínimo un hilo (el principal), y a partir de él puede crear más. Si el proceso termina, todos sus hilos terminan con él.
+
+c) Utilizando tus propias palabras, indica las características de la programación concurrente y los problemas que plantea. 3 puntos.
+
+La programación concurrente es cuando varias tareas progresan a la vez, o al menos lo parecen: pueden ejecutarse de verdad a la vez si hay varios núcleos, o repartirse el tiempo de la CPU en uno solo. Se usa cuando hay tareas que compiten por recursos o que se tienen que coordinar (servidores atendiendo a varios clientes, interfaces que no se congelan mientras trabajan, etc.).
+
+Plantea dos problemas principales:
+
+- Exclusión mutua: cuando varios hilos o procesos comparten un recurso, solo uno puede usarlo a la vez en su región crítica. Ejemplo: dos hilos que suman 1 a un mismo contador; si lo hacen a la vez pueden leer el mismo valor y se pierde una suma. Se resuelve con synchronized o con semáforos.
+
+- Sincronización: una tarea tiene que esperar a que otra haga algo antes de continuar. Ejemplo: en el modelo productor-consumidor, el consumidor tiene que esperar a que el productor haya dejado un dato. En Java se resuelve con join(), wait()/notify() o con waitFor() entre procesos.
+
+Además pueden aparecer interbloqueos (deadlock) si dos tareas se esperan la una a la otra para siempre.
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, con sus ventajas e inconvenientes. 3 puntos.
+
+La programación paralela reparte un trabajo entre varios procesadores o núcleos de una misma máquina que normalmente comparten memoria, para terminar antes. Su ventaja es la velocidad y que comunicar las partes es rápido; su inconveniente es que está limitada por el hardware de esa máquina y que hay que sincronizar el acceso a lo compartido.
+
+La programación distribuida reparte el trabajo entre varias máquinas conectadas por red, que no comparten memoria y se comunican enviándose mensajes. Su ventaja es que escala más (se pueden añadir máquinas) y que si una cae las demás pueden seguir; sus inconvenientes son que la red es más lenta, puede fallar, y es más difícil de diseñar y coordinar. Internet o un sistema de servidores en distintos sitios son ejemplos típicos.
+
+Notas:
+
+El nombre del fichero .txt a entregar debe ser:	examen\dev_X\ua1ex1_teoria.txt , es decir, el fichero ua1ex1_teoria.txt debe estar ubicado en tu carpeta examen\dev_X\

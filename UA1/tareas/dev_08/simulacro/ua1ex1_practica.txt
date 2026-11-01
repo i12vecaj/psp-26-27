@@ -1,0 +1,34 @@
+NOMBRE: Rafael García Adamuz
+FECHA: 29/10/2026
+
+PARTE PRÁCTICA
+
+FR1: Haz un programa en Java (Padre.java) que genere una estructura de procesos con un PADRE y 3 HIJOS, del mismo padre se entiende, usando ProcessBuilder - 2 puntos
+FR2: Visualiza por cada hijo (Hijo.java) su identificador (si es el hijo 1, 2 ó 3), su PID y el del padre, utilizando para ello un método definido por ti al que llame el hijo - 2 puntos
+FR3: Justo antes de finalizar el programa PADRE, se debe imprimir por pantalla el PID del padre de todos una única vez. Debe hacerlo el programa PADRE - 2 puntos
+FR4: Implementa el control de errores - 2 puntos
+FR5: Documenta y estructura el código - 2 puntos
+
+Entrega: Padre.java e Hijo.java en examen\dev_X\
+
+Cómo lo he resuelto:
+
+FR1: Padre lanza 3 procesos Hijo con ProcessBuilder desde el método lanzarHijo() y espera a todos con waitFor().
+FR2: Hijo recibe su identificador como argumento y lo muestra con su PID y el de su padre en el método mostrarDatos().
+FR3: Al final del main, Padre imprime su PID una sola vez.
+FR4: Se comprueba el número de argumentos y que el identificador sea un entero en Hijo (códigos de salida 1 y 2), se capturan IOException e InterruptedException en Padre y se avisa si un hijo termina con código distinto de 0.
+FR5: Código dividido en métodos y con comentarios breves.
+
+Ejemplo de ejecución (java -cp . Padre):
+
+PADRE: lanzo 3 hijos
+  Hijo 1 -> PID: 11548 | PID del padre: 28924
+  Hijo 3 -> PID: 19908 | PID del padre: 28924
+  Hijo 2 -> PID: 20356 | PID del padre: 28924
+PADRE: mi PID es 28924
+
+El orden en que salen los hijos puede cambiar de una ejecución a otra, porque son procesos independientes que corren a la vez.
+
+Notas:
+
+El nombre de los ficheros a entregar debe ser: examen\dev_X\Padre.java y examen\dev_X\Hijo.java
