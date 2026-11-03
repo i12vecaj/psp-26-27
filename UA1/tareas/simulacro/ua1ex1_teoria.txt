@@ -1,0 +1,20 @@
+NOMBRE:
+FECHA:
+
+PARTE TEÓRICA (25 minutos, sin acceso a internet)
+
+a) Definición de programación concurrente. 1 punto.
+La programación concurrente es cuando varios procesos ocurren al mismo tiempo
+
+b) Utilizando tus propias palabras, indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 3 puntos.
+Un proceso es un programa el cual ejecuta los hilos, los cuales están dentro del proceso y comparten memoria y recursos
+
+c) Utilizando tus propias palabras, indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 3 puntos.
+La exclusión mutua ocurre cuando varios procesos acceden a la misma variable a modificarla y respecto a la condición de sincronización es la necesidad de coordinar las actividades de dos procesos ya que a lo mejor uno no puede empezar hasta que no acabe otro
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, con ventajas e inconvenientes de cada una. 3 puntos.
+Esta divido en partes que corren en distintas CPUs con lo que lleva más consumo y una sincronización más compleja. Y la distribuida son distintos equipos conectados en red, comparten recursos, más disponibilidad y más incremental pero puede ser más complejo y llevar problemas de seguridad como de DDoS
+
+Notas:
+
+El nombre del fichero .txt a entregar debe ser: examen\dev_X\ua1ex1_teoria.txt
