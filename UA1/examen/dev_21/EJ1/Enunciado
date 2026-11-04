@@ -1,0 +1,39 @@
+EXAMEN UA1 · ACTIVIDAD 1: PROCESOS (3 puntos)
+NOMBRE:
+FECHA:
+Tiempo: 75 minutos. Individual. Puedes consultar tus apuntes y los ejemplos del repositorio.
+NO está permitido usar herramientas de IA ni buscar en internet.
+Crea DOS programas Java: Tarea.java (proceso hijo) y Planificador.java (proceso padre).
+FR1 (0,75 puntos): Tarea recibe dos argumentos: un nombre y un número de segundos.
+     - Si faltan argumentos termina con System.exit(1); si los segundos no son un número, con 2; si son negativos, con 3. En los tres casos escribe un mensaje por la salida de error.
+     - Si los argumentos son correctos, lee UNA línea de su entrada estándar (el mensaje del padre) y escribe "[nombre] mensaje recibido: <mensaje>".
+     - Si el nombre es "falla", escribe "[falla] error simulado" por la salida de error y termina con System.exit(4).
+     - En el resto de casos escribe "[nombre] trabajando N s", espera esos segundos, escribe "[nombre] terminado" y termina con System.exit(0).
+FR2 (0,75 puntos): Planificador lanza A LA VEZ cinco procesos Tarea con estos argumentos: (A, 2), (B, 1), (C, 8), (falla, 1) y (D, -1). Todas deben estar en marcha antes de esperar a ninguna. A cada una le envía el mensaje "Hola desde el padre a <nombre>" y cierra su entrada.
+FR3 (0,5 puntos): La salida de error de todas las tareas se guarda, añadiendo al final, en el fichero errores.log (sin leerla desde Java). La salida normal de cada tarea se lee desde Java.
+FR4 (0,6 puntos): El Planificador espera como máximo 3 segundos a cada tarea. Si no ha terminado, la cancela. Para cada tarea muestra su estado:
+     OK (codigo 0), ERROR (codigo N) o TIMEOUT (cancelada).
+     Después de cada estado muestra la salida normal de la tarea. Si una tarea ha sido cancelada no se muestra su salida.
+FR5 (0,4 puntos): Al final muestra un resumen con el número de tareas OK, ERROR y TIMEOUT. Controla las excepciones y documenta el código con comentarios.
+Ejemplo de salida esperada:
+Tarea A: OK (codigo 0)
+   [A] mensaje recibido: Hola desde el padre a A
+   [A] trabajando 2 s
+   [A] terminado
+Tarea B: OK (codigo 0)
+   [B] mensaje recibido: Hola desde el padre a B
+   [B] trabajando 1 s
+   [B] terminado
+Tarea C: TIMEOUT (cancelada)
+Tarea falla: ERROR (codigo 4)
+   [falla] mensaje recibido: Hola desde el padre a falla
+Tarea D: ERROR (codigo 3)
+Resumen: 2 OK, 2 ERROR, 1 TIMEOUT
+Pista: para que Planificador encuentre la clase Tarea usa
+new ProcessBuilder("java", "-cp", System.getProperty("java.class.path"), "Tarea", ...)
+Notas:
+Los comentarios (descriptivos y concisos) en el código siempre son bien.
+Los nombres de las variables autodescriptivos siempre son bien.
+Entrega por git: sube Tarea.java y Planificador.java a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/EJ1/ (sin paquete, es decir, en el paquete por defecto).
+No subas ficheros compilados (.class), configuración del IDE ni errores.log.

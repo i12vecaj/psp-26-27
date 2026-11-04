@@ -1,0 +1,43 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Tarea {
+    static void main(String[] args) throws IOException {
+        //FR1
+        if (args.length<2) {
+            System.out.println("Faltan datos");
+            System.exit(1);
+        }
+        String nombre = args[0];
+        int segundos;
+
+        try {
+            segundos = Integer.parseInt(args[1]);
+        } catch (NumberFormatException e) {
+            System.out.println("no es un número");
+            System.exit(2);
+            return;
+        }
+        if (segundos <0) {
+            System.out.println("valor negativo");
+            System.exit(3);
+        }
+        BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
+
+        String mensaje = lector.readLine();
+        System.out.println("[" + nombre + "]" + "mensaje recibido:" + "<" + mensaje + ">");
+        if (nombre.equals("falla")){
+            System.out.println("(falla) error simulado");
+            System.exit(4);
+        }
+
+        System.out.println("[" + nombre + "]" + "Trabajando" + segundos + "s");
+        try {
+        Thread.sleep(segundos * 1000L);
+        }catch (InterruptedException e) {
+         Thread.currentThread().interrupt();
+        }
+System.out.println("[" + nombre + "]");
+    }
+}
