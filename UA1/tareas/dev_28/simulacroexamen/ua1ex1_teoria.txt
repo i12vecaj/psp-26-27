@@ -1,0 +1,108 @@
+NOMBRE: David
+FECHA: 04/11/26
+
+PARTE TEÓRICA
+
+a) Definición de programación concurrente.
+
+La programación concurrente organiza un programa en varias tareas cuyo
+desarrollo se solapa en el tiempo. Estas tareas pueden alternarse en un
+único núcleo o ejecutarse simultáneamente en varios núcleos.
+
+Por ejemplo, una aplicación puede atender las acciones del usuario
+mientras otra tarea descarga un archivo.
+
+
+b) Diferencias entre un hilo y un proceso y su relación.
+
+Un proceso es un programa en ejecución que tiene su propio espacio de
+memoria y sus recursos del sistema.
+
+Un hilo es una unidad de ejecución dentro de un proceso. Cada proceso
+tiene al menos un hilo y puede tener varios.
+
+Los hilos del mismo proceso comparten memoria y recursos, aunque cada
+uno tiene su propia pila y estado de ejecución. Esto facilita compartir
+datos, pero obliga a coordinar los accesos para evitar errores.
+
+Los procesos normalmente tienen espacios de memoria separados. Para
+comunicarse utilizan mecanismos como tuberías, sockets o memoria
+compartida.
+
+Crear un proceso suele consumir más recursos que crear un hilo, pero
+ofrece mayor aislamiento entre programas.
+
+En esta práctica, Padre e Hijo son procesos diferentes. El padre lee
+los datos del hijo mediante una tubería conectada a su salida estándar.
+
+
+c) Exclusión mutua y condición de sincronización, con ejemplos.
+
+Exclusión mutua:
+
+Consiste en permitir que solo una tarea acceda a la vez a una sección
+crítica que utiliza un recurso compartido.
+
+Por ejemplo, dos hilos intentan incrementar un contador que vale 5.
+Si ambos leen 5 y después escriben 6, el resultado será 6 en lugar de 7.
+Se habrá perdido una actualización por una condición de carrera.
+
+Para evitarlo, se puede proteger toda la actualización con un bloqueo
+o utilizar una operación atómica.
+
+Condición de sincronización:
+
+Consiste en hacer que una tarea espere hasta que se cumpla una condición
+necesaria para continuar.
+
+Por ejemplo, un consumidor debe esperar cuando una cola está vacía.
+Cuando un productor añade un elemento, avisa al consumidor para que
+pueda continuar.
+
+Al despertar, el consumidor debe volver a comprobar la condición,
+normalmente mediante un bucle while.
+
+Una coordinación incorrecta también puede causar interbloqueos:
+dos tareas podrían esperar indefinidamente si cada una retiene un
+recurso que necesita la otra.
+
+
+d) Diferencias entre programación paralela y distribuida.
+Ventajas e inconvenientes.
+
+Programación paralela:
+
+Ejecuta trabajo simultáneamente en varias unidades de cálculo.
+Por ejemplo, varios núcleos de un ordenador procesan distintas
+partes de una imagen.
+
+Ventajas:
+- Puede reducir el tiempo de ejecución.
+- Aprovecha varios núcleos o procesadores.
+- Dentro de un equipo, la comunicación suele ser rápida.
+
+Inconvenientes:
+- Dividir el trabajo y sincronizar las tareas añade coste.
+- Las partes secuenciales limitan la mejora de rendimiento.
+- Los recursos disponibles en el equipo son limitados.
+
+Programación distribuida:
+
+Reparte componentes o tareas entre varios equipos que se comunican
+mediante una red.
+
+Por ejemplo, una aplicación puede utilizar varios servidores web
+y una base de datos situada en otra máquina.
+
+Ventajas:
+- Permite ampliar la capacidad añadiendo equipos.
+- Puede mejorar la disponibilidad si existe redundancia.
+- Permite repartir servicios y recursos entre distintas ubicaciones.
+
+Inconvenientes:
+- La comunicación introduce latencia.
+- Pueden producirse fallos de red y fallos parciales.
+- Mantener los datos coherentes es más complejo.
+
+Ambas pueden combinarse: un sistema distribuido puede ejecutar tareas
+en paralelo en varias máquinas y utilizar varios núcleos en cada una.
