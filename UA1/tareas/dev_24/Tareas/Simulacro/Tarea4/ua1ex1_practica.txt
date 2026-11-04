@@ -1,0 +1,35 @@
+NOMBRE:
+FECHA:
+
+PARTE PRÁCTICA (50 minutos)
+
+Crea DOS programas Java: Hijo.java y Padre.java.
+
+FR1: Hijo recibe un número n como argumento de main(). Si todo va bien escribe por pantalla los números de 1 a n (uno por línea, con una espera de 200 ms entre cada uno) y termina con System.exit(0). Si hay problemas devuelve con System.exit():
+     1 si no hay argumento, 2 si el argumento no es un número, 3 si el número es negativo - 2 puntos
+
+FR2: Padre lanza 4 procesos Hijo A LA VEZ con los argumentos "4", "6", "-2" y "abc". Todos deben estar en marcha antes de esperar a ninguno - 2 puntos
+
+FR3: Padre lee lo que escribe cada hijo, suma los números recibidos y muestra por pantalla la suma de cada hijo y la suma total - 2 puntos
+
+FR4: Padre muestra el código de salida de cada hijo con un mensaje que lo explique (0 correcto, 1 falta argumento, 2 no es un número, 3 número negativo). Implementa el control de errores (excepciones) - 2 puntos
+
+FR5: Documenta y estructura el código - 2 puntos
+
+Ejemplo de salida esperada:
+
+Hijo 1 (arg=4): codigo 0 -> OK, suma=10
+Hijo 2 (arg=6): codigo 0 -> OK, suma=21
+Hijo 3 (arg=-2): codigo 3 -> numero negativo
+Hijo 4 (arg=abc): codigo 2 -> no es un numero
+Suma total: 31
+
+Pista: para que Padre encuentre la clase Hijo, usa
+new ProcessBuilder("java", "-cp", System.getProperty("java.class.path"), "Hijo", argumento)
+
+Notas:
+
+Los comentarios (descriptivos y concisos) en el código ... siempre son bien.
+Los nombres de las variables autodescriptivos ... siempre son bien.
+Si usas IntelliJ y te pide un SDK que no tienes, elige el JDK que tengas instalado en Project Structure > Project.
+Los ficheros a entregar deben estar en: examen\dev_X\Hijo.java y examen\dev_X\Padre.java
