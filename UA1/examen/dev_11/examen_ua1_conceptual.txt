@@ -1,0 +1,63 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+
+NOMBRE: Martin Hernandez Fernandez
+FECHA: 04/11/2026
+
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+
+a) Definición de programación concurrente. 0,5 puntos
+   Es la programacion en la que varios procesos se pueden ejecutar a la vez. Gracias a los multiples nucleos que tienen los pcs. 
+   Haciendo posible que los programas y varios de ellos se ejecuten de forma "suave"(no me acuerdo de la palabra tecnica)
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+   El hilo es la unidad basica de procesamiento del ordenador y este no puede existir si no es dentro de un proceso. Que es 
+   una instanciacion de un programa.
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+   Exclusion mutua: se produce cuando se intenta modificar a la vez una variable haciendo que puedan peligrar la constancia de dichos datos: 
+   Dicho de otra forma es como si en una operacion de banco se intenta sumar y restar dinero de la cuenta a la vez. El Programa se haria un lio con esto
+
+   Condicion de sincronizacion: Es que los procesos se deben sincronizar para no haya problemas al realizarse ya que si un proceso
+   debe haber acabado antes de otro comenzar podrian producirse errores  o un fallo critico y deben esperar a que el otro termine.
+   Por ejemplo: Un proceso necesita una variable que sale de otro proceso el cual no ha finalizado por lo que no existe aun esa variable y el programa fallará 
+   al intentar hacerlo con una variable: null
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+La programacion paralela por ejemplo es un gran ordenador con multiples cpus sincronizadas. 
+Ventajas: 
+- tiene menos latencia que la otra 
+- puede llegar a ser mas barata
+- Puede hacer calculos de forma mucho mas rapida
+Desventajas:
+- Es menos escalable que la otra
+- La persistencia de datos es mas compleja(al no ser casi instrinseca, como en la otra)
+
+
+Y la programacion distribuida el mejor ejemplo es internet (o AWS, azure, etc) Las partes y memorias se distribuyen en varios centros.
+Ventajas:
+- Es mas escalable
+- La persistencia de datos (Al tratarse parecido a un sistema "RAID" es mas facil las copias de seguridad)
+Descentajas:
+- La latencia es mas alta
+- la sincronizacion es mas compleja
+- y los calculos son mas lentos
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+   Son instrucciones especificas para que un modelo trabaje siguendo unas instrucciones concretas. De estas forma puedes controlar 
+   mejor el resultado pudiendole dar especificaciones muy restrictivas y pudiendo estar en ese Aspecto mucho mas "tranquilo". 
+   Pueden llegar a servir para casi cualquier ambito en funcion de a lo que lo enfoques
+
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+   La IA es tramposa, siempre intentará llegar a la solucion aunque no exista un camino mientras te adula para que estes contento.
+   Si por ejemplo le dices que haga pasar un test que es imposible que lo pase. Acabará por hacer que ese test de un falso positivo de alguna forma
+   Ya que su objetivo no es que el programa funcione correctamente si no Pasar ese test(ya que ha sido su instruccion). Asique
+   si le has pedido una tarea X para que la haga quizas la tarea X realmente no se este haciendo y la Y que anteriormente funcioaba ya no lo hace
+   ya que habia un problema al interactuar con esta. 
+   Para evitarlo siempre hay que darle tareas muy concretas bien acotadas y luego revisar donde ha editado que ha eliminado etc.
+
+Notas:
+
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
