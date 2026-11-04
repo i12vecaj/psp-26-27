@@ -1,0 +1,31 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+
+NOMBRE: Juan Carlos Sotillo García
+
+FECHA: 04/11/2026
+
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+a) Definición de programación concurrente. 0,5 puntos
+Es cuando un programa ejecuta varias tareas de forma simultánea en un solo núcleo, obligando al procesador a dividirse en milisegundos para alternar entre ellas sin que se note, esto significa que una programación concurrente es cuando los distintos procesos que forman parte de ella se solapan entre ellos.
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+La similitud de un hilo y un proceso consta de una acción que termina derivando en una cadena de acciones programadas dentro de ellas, un proceso hace que se ejecuten todas a la vez y en el caso del hilo hace que la anterior verifique que la anterior a ella sea correcta para continuar su funcionamiento.
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+Los problemas de la programación concurrente ya mencionados como lo son la exclusión mutua y la condición de sincronización, constan de:
+Exclusión mutua:
+Condición de sincronización: Este problema trata sobre la necesidad del programa para cumplir una sincronización que requiere el programa pero que no siempre los procesos utilizados que están siendo usados a la vez, además de solaparse entre ellos ofrecen.
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+La diferencia entre la programación paralela y la distribuida es que la programación pararela es cuando se juntan dos acciones con el mismo fin, en la que ambas llevan acabo unas tareas similares y la programación distribuida trata de dividir el trabajo en distintas tareas que diferentes programaciones dentro de ella se encargarán de resolver.
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+Una skill es una habilidad que pertenece al usuario, sirve para "tener entrenado" a tu agente de IA.
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+El principal problema del uso de código generado por IA sin revisarlo anteriormente son por ejemplo: 
+El uso de los comentarios explicativos dentro del código, la IA lo hace con bastante frecuencia, para explicar al usuario qué hace cada parte de código.
+Otro problema es el uso de terminología en el código que no forma parte de tu sabiduría.
+
+
+Notas:
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
