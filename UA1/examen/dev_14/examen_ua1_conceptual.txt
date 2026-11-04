@@ -1,0 +1,34 @@
+NOMBRE: Federico Talgat Lora Ortiz (Fedes10)
+FECHA: 04/11/2026
+
+EXAMEN UA1 · PARTE CONCEPTUAL
+
+a) Definición de programación concurrente. 0,5 puntos
+
+La programación concurrente es cuando varias tareas acaban o chocan en un mismo destino pero deben de entrar de una en una
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+
+Un proceso es el conjunto de hilos que se usan para un programa,es decir un hilo es una via de comunicacion con los nucleos del procesador y comparten la memoria que dispone el proceso, ya que el proceso es el conjunto de estos hilos y dispone de la memoria asignada por el programa. Ademas el programa es algo que suele ejecutar manualmente al cotnrario que un proceso
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+
+Exclusion mutua es que si dos camareros sirve a una mesa a la vez, uno de los dos se come el plato con patatas y la condición de sincronización es que ambos camarareos deben ponerse de acuerdo para servir las mesas sin chocarse
+
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+
+La programacion distribuida es mas complicada de programar y gestionar ya que implica tener que ajustar y repartir las cargas y tareas de forma eficiente. Lo bueno de la paralalea que no chocan entre si pero te ves limitado los recursos de hardware y nucleos del procesador, y la distribuida lo bueno es qeu es mucho mas eficiente de cara a optmizacion de un programa pero es mas costosa de configurar
+
+e) Desarrollo de software con agentes. 0,5 puntos
+   Qué es una skill y para qué sirve.
+Una skill es una plantilla donde detallas como debe comportarse una agente de ia, que herramietnas usar,como trabajar, que hacer que no hacer que revisar etc etc. Es para hacer que trabaje segun tu quieras, ejemplo no se que piense como un fontanero experto o un desarrolador senior 
+
+
+   Dos riesgos de usar código generado sin revisarlo y cómo evitarlos.
+
+   La ia cada vez falla menos, pero aun asi falla frecuentemeten, por eso es recomendable revsiar los codigos que genera, tener buenas bóvedas de guia de que hacer y que no hacer y sobre todo que errores cometio para no repetirlos ya que olvida mas rapido que el pez Dori. Por eso es buen siempre usar buenas skill para organizar y dirigir proyectos, comparar con varios agentes y modelos los codigos y hacer que ella misma tambien sea autocritiac
+
+
+
+Notas:
