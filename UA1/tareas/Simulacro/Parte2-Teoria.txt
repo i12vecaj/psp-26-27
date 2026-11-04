@@ -15,3 +15,32 @@ Responde cada pregunta con tus palabras, en unas 5 líneas, sin apuntes (7 minut
 - (Se miran los apuntes)
 - La programación paralela se ejecuta en un sistema multiprocesador y  trabaja con varias CPU.
 - La programación distribuida se ejecutan en varios equipos y seconectan luego por la Red
+
+RESPUESTAS CORRECTAS
+a) Definición de programación concurrente (1 p)
+La programación concurrente consiste en que varias tareas avanzan en el mismo periodo de tiempo
+intercalando sus instrucciones, en una CPU o en varias. A diferencia de la secuencial, su resultado
+puede ser indeterminista, por lo que necesita mecanismos de comunicación y sincronización.
+
+b) Diferencias entre hilo y proceso y cómo se relacionan (3 p)
+Un proceso es un programa en ejecución con su propio espacio de memoria, gestionado por el SO mediante su PCB.
+ Un hilo es una línea de ejecución dentro de un proceso. La diferencia principal es que los procesos
+ están aislados entre sí, mientras que los hilos de un mismo proceso comparten memoria.
+ Por eso crear y comunicar hilos es más barato, aunque un fallo en un hilo puede afectar a
+ todo el proceso. Se relacionan porque todo proceso tiene al menos un hilo y puede crear más, y un hilo no existe fuera de su proceso.
+
+c) Problemas de la programación concurrente con un ejemplo de cada uno (3 p)
+La exclusión mutua aparece cuando varios procesos acceden a la vez a un mismo recurso para modificarlo,
+lo que puede dejar datos incoherentes. Se resuelve con una sección crítica, en la que solo entra
+un proceso a la vez; por ejemplo, dos retiradas simultáneas de una misma cuenta.
+La condición de sincronización aparece cuando un proceso necesita que otro termine o le proporcione
+un dato antes de continuar, por lo que deben coordinarse; por ejemplo, un proceso que imprime un informe d
+ebe esperar a que otro calcule los datos.
+
+d) Diferencias entre programación paralela y distribuida, con ventajas e inconvenientes (3 p)
+La programación paralela ejecuta un programa en un único sistema con varios procesadores que trabajan a la vez
+sobre partes del mismo problema, normalmente compartiendo memoria. La distribuida reparte el programa entre varios
+ordenadores conectados por red, que se comunican mediante mensajes (sockets, RPC o RMI).
+La paralela reduce el tiempo de ejecución, pero es más difícil de programar y consume más energía.
+La distribuida permite compartir recursos, crecer añadiendo equipos y seguir funcionando si uno falla, pero es más compleja
+y depende de la red y de su seguridad.

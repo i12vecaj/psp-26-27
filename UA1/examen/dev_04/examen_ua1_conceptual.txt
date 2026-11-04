@@ -1,0 +1,32 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+NOMBRE: Neus Campos Calvo
+FECHA:04/11/2026
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+a) Definición de programación concurrente. 0,5 puntos
+    La programación concurrente es cuando unas tareas/procesos se realizan de forma simultánea.
+    El equipo puede tener varias CPUS o equipos, y usualmente comparten recursos.
+    Casi nunca sabemos como puede salir el orden de los resultados, ya que dependeran de como esten distribuidos los recursos en ese momento.
+    Por ejemplo, si tengo A+B puede salir AB y la siguiente vez BA
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+    Un proceso es una secuencias de tareas la cual tiene su propio espacio de memoria, se comunica mediante la CPU. Si hay algún problema no afecta a los otros procesos
+    Un hilo es una tarea que se está ejecutando de un proceso, son más baratas de crear y mas ligeras que los procesos. Los hilos comparten memoria y recursos con los otros hilos del proceso y si hay algún fallo con alguno puede comprometer al proceso.
+    Se relacionan entre sí porque un proceso puede tener 1 o varios hilos y un hilo siempre pertenece a un proceso.
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+    La exclusión mutua es cuando dos procesos quieren usar el mismo proceso a la vez y se pisan, lo que deja información inconcluyente, es decir. Si dos personas quieren sacar 50 $ de una cuenta de 100$, cuando cada uno lo haga le pondra que quedan 50€, siendo el verdadero resto 0.
+    La condición sincronizada es cuando los procesos/tareas no siguen un orden y se adelantan, por lo tanto, no tienen los recursos que necesitán, por ejemplo, para comerte una pizza primero debes hacerla y luego comertela, no puedes comerla y luego hacerla, es imposible.
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+    La programación paralela es cuando un equipo tiene varias cpus y realiza las tareas de forma simultánea. Una ventaja sería que es bastante rapido y algunas inconveniencias serían que va a llegar un momento en el que no vasa a poner añadir más CPU y no podras ampliar, además es más complicado de programar
+    La programación distribuida es cuando se realiza en diferentes equipos y se comunica por la red por ejemplo por Dockers. Una ventaja sería que se puede ampliar todo lo que quereamos y una desventaja sería que dependemos de la red y su seguridad.
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+    Una skill es como una habilidad que le damos a la ia para que aprenda a hacer algo. Sirve para poder realizar algunas tareas con más facilidad o poder realizarlas en si.
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+Notas:
+
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
