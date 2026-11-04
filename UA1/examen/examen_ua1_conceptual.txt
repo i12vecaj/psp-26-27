@@ -1,0 +1,32 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+
+NOMBRE:ALEJANDRO MEDRÁN GÁLVEZ
+FECHA:04/11/2026
+
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+
+a) Definición de programación concurrente. 0,5 puntos
+La programación concurrente es cuando varios procesos ocurren al mismo tiempo
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+Un proceso es un programa que ejecuta los hilos, están dentro del proceso y comparten memoria y recursos
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+La exclusión mutua es cuando varios procesos acceden a la misma variable para modificarla. Y la condición de sincronización es la coordinación de las actividades de dos procesos ya que puede ser posible que uno o varios no puedan empezar hasta que otro finalice
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+La paralela esta divida en partes que corren en distintas cpu con lo que aumenta el consumo pero es más eficaz y la distribuida son distintos equipos conectados en red que comparten recursos, pero también puede ser más vulnerable
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+Una skill es una serie de instrucciones que se le enseñan a la IA y que se le activa para realizar determinadas tareas.
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos
+Los riesgos que pueden acarrear es que el código que se haya generado es que estén incorrectos ya que no haya sido demasiado exacto a la hora de hacer el prompt y no haga un código usable o también que invente y tergiverse demasiado a la hora de corregir el primer riesgo y mas cuando depende un código de otro. Revisando por varias IAs, entre ellas las más especializadas como Claude, para ver si el código es correcto, corregirlo y adaptarlo a lo que se necesite
+
+Notas:
+
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_17, en la carpeta
+UA1/examen/dev_17/.
+
+
