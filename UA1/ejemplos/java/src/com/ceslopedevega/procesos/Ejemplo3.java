@@ -9,7 +9,7 @@ public class Ejemplo3 {
 		// escritura -- envia entrada a DATE
 		OutputStream os = p.getOutputStream();
 		os.write("20-05-20".getBytes());
-		os.flush(); // vacía el buffer de salida
+		os.flush(); // vacÃ­a el buffer de salida
 
 		// lectura -- obtiene la salida de DATE
 		InputStream is = p.getInputStream();		
