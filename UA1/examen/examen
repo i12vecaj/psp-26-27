@@ -1,0 +1,37 @@
+/*a) Definición de programación concurrente (0,5 puntos)
+
+es la forma de programar realizando varias tareas al mismo tiempo y
+pueden ir cambiando unas a las otras mientras avanzan.\*/
+
+/* b) Diferencias entre un hilo y un proceso, y relación (0,75 puntos)
+
+el hilo es esta ejecutando justo ahora y es un proceso con su memoria individual,
+un proceso tiene varios hilos dentro realizando tareas, la relacion que tienes
+es que uno esta dentro de el otro funcionando.\*/
+
+
+/* c) Problemas de la programación concurrente (0,75 puntos)
+
+la exclusion que es cuando varios hilos estan usando un recurso y lo modifican hace que pueda no funcionar bien,
+como el ejemplo de la retirada de dinero miestras otro hilo cambia el saldo de la cuenta.
+otro problema es la sincronizacion que es como el ejemplo de arriba que un hlo necesita que otro termine y este alomejor
+ni a creado ese archivo para que el otro lo abra.
+\*/
+
+/* d) Diferencias entre programación paralela y distribuida (0,5 puntos)
+ paralela: varias tareas se hacen al mismo tiempo usando varios núcleos de un ordenador,
+         es más rápida pero  necesita que el procesador sea suficientemente potente.
+ distribuida: varias tareas se realizan en diferentes ordenadores conectados por una red lo que hace que
+       se pueda  repartir el trabajo pero tambien  dependes de la conexión de red. \*/
+
+/* e) Desarrollo de software con IA (0,5 puntos)
+¿Qué es una skill y para qué sirve?
+
+es una habilidad que permite que la ia pueda realizar tareas de forma rapida y facil bien ordenada.
+
+Dos riesgos de usar código generado por IA sin revisarlo y cómo evitarlos:
+        - errores y fallos y para evitarlo debes revisarlo y probarlo antes.
+        - puede dar problemas en la sincronizacion, debes comprobar que los semaforos funcinan bien.
+
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).\*/

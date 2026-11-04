@@ -8,8 +8,8 @@ public class LanzaHiloSimple1 {
 		HiloSimple1 hilo3 = new HiloSimple1(3, 5);
 		
 		// Se lanzan los hilos
-		hilo1.start();
-		hilo2.start();
-		hilo3.start();
+		hilo1.run();
+		hilo2.run();
+		hilo3.run();
 	}
 }
