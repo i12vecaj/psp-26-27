@@ -1,0 +1,50 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+
+NOMBRE: Alejandro Lopez Carmona
+FECHA: 04/11/2026
+
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+
+a) Definición de programación concurrente. 0,5 puntos
+
+La programación concurrente se trata de en mismo programa activar varios procesos a la vez y que trabajen de forma coordinada todos a la vez 
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+
+Diferencias entre un hilo y un proceso:
+
+-Un hilo es menos costoso que un que un proceso
+-Un hilo por mas que compartan la memoria siempre va a consumir menos que un proceso
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+
+Exclusión mutua: Se trata cuando varios procesos necesitan de otros es decir un proceso necesita recibir información de otro para poder continuar con su trabajo.
+Ejemplo: A la hora de analizar datos o sacar unas cuentas especificas necesitas la información de una variable(por ejemplo) para complementar otro proceso 
+Condición de sincronización: Se trata cuando varios procesos intentan modificar un mismo dato a la vez.
+Ejemplo: Cuando vas a sacar dinero de un banco y solo tienes 500 euros pero desde dos diferentes lugares intentas sacar los 500 euros al completo
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+
+Diferencias programación paralela y programación distribuida:
+
+-En una se encuentra todo en un mismo dispositivo mientras que otra se encuentra distribuida en varios equipos
+-Los costos son muy diferentes ya que no tienen el mismo precio su mantenimiento
+-En la primera solo puede trabajar una persona mientras que en la otra se pueden conectar varias simultáneamente.
+-El consumo de memoria en la distribuida es superior a la paralela
+
+e) Desarrollo de software con IA. 0,5 puntos
+
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+     
+     Riesgos:
+     
+     -El código generado no esta hecho a medida con el pront que le has mandado y la IA se vuelve loca 
+     -Generación de código sobrante 
+
+     Solución: No pedirle que nos escupa código como si nada en cambio podemos pasarle varios ejemplos nuestros y en vez de generarlo todo del tirón que nos ayude a completar el código          junto a nosotros siguiendo nuestras propias reglas 
+
+Notas:
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
