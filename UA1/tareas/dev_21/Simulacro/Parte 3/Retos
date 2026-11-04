@@ -3,20 +3,228 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Reto1 {
-    public static void main(String[] args) throws Exception {
 
-        ProcessBuilder pb = new ProcessBuilder("java", "-version");
-        Process p = pb.start();
+    public static void main(String[] args) {
 
-        BufferedReader br = new BufferedReader(
-                new InputStreamReader(p.getErrorStream()));
+        try {
+            ProcessBuilder pb = new ProcessBuilder("java", "-version");
 
-        String linea;
-        while ((linea = br.readLine()) != null) {
-            System.out.println(linea);
+            Process proceso = pb.start();
+
+            // Leer la salida normal
+            BufferedReader salida = new BufferedReader(
+                    new InputStreamReader(proceso.getInputStream()));
+
+            // Leer la salida de errores
+            BufferedReader error = new BufferedReader(
+                    new InputStreamReader(proceso.getErrorStream()));
+
+            String linea;
+
+            System.out.println("Salida normal:");
+
+            while ((linea = salida.readLine()) != null) {
+                System.out.println(linea);
+            }
+
+            System.out.println("Salida de error:");
+
+            while ((linea = error.readLine()) != null) {
+                System.out.println(linea);
+            }
+
+            // Esperar a que termine el proceso
+            int codigo = proceso.waitFor();
+
+            System.out.println("Código de salida: " + codigo);
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+public class Reto2 {
+
+    public static void main(String[] args) {
+
+        try {
+            ProcessBuilder pb = new ProcessBuilder(
+                    "java", "-cp",
+                    System.getProperty("java.class.path"),
+                    "Eco"
+            );
+
+            Process proceso = pb.start();
+
+            // Enviar datos al programa hijo
+            PrintWriter escritor = new PrintWriter(
+                    proceso.getOutputStream(), true);
+
+            escritor.println("hola");
+            escritor.println("mundo");
+            escritor.println("fin");
+
+            // Cerramos el flujo
+            escritor.close();
+
+            // Leer la respuesta del hijo
+            BufferedReader lector = new BufferedReader(
+                    new InputStreamReader(proceso.getInputStream()));
+
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                System.out.println(linea);
+            }
+
+            int codigo = proceso.waitFor();
+
+            System.out.println("Código de salida: " + codigo);
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+
+import java.io.IOException;
+
+public class Reto3 {
+
+    public static void main(String[] args) {
+
+        try {
+            String ruta = System.getProperty("java.class.path");
+
+            // EJECUCIÓN SECUENCIAL
+            long inicio = System.currentTimeMillis();
+
+            Process proceso1 = new ProcessBuilder(
+                    "java", "-cp", ruta, "Espera", "2").start();
+
+            proceso1.waitFor();
+
+            Process proceso2 = new ProcessBuilder(
+                    "java", "-cp", ruta, "Espera", "2").start();
+
+            proceso2.waitFor();
+
+            long fin = System.currentTimeMillis();
+
+            System.out.println("Tiempo secuencial: "
+                    + (fin - inicio) + " ms");
+
+
+            // EJECUCIÓN PARALELA
+            inicio = System.currentTimeMillis();
+
+            Process proceso3 = new ProcessBuilder(
+                    "java", "-cp", ruta, "Espera", "2").start();
+
+            Process proceso4 = new ProcessBuilder(
+                    "java", "-cp", ruta, "Espera", "2").start();
+
+            // Esperamos a que terminen los dos
+            proceso3.waitFor();
+            proceso4.waitFor();
+
+            fin = System.currentTimeMillis();
+
+            System.out.println("Tiempo paralelo: "
+                    + (fin - inicio) + " ms");
+
+
+            // AMPLIACIÓN: TRES PROCESOS EN PARALELO
+            inicio = System.currentTimeMillis();
+
+            Process p1 = new ProcessBuilder(
+                    "java", "-cp", ruta, "Espera", "2").start();
+
+            Process p2 = new ProcessBuilder(
+                    "java", "-cp", ruta, "Espera", "2").start();
+
+            Process p3 = new ProcessBuilder(
+                    "java", "-cp", ruta, "Espera", "2").start();
+
+            p1.waitFor();
+            p2.waitFor();
+            p3.waitFor();
+
+            fin = System.currentTimeMillis();
+
+            System.out.println("Tiempo de tres procesos: "
+                    + (fin - inicio) + " ms");
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+
+public class Reto4 {
+
+    // Clase que implementa Runnable
+    static class MiHilo implements Runnable {
+
+        private int segundos;
+
+        public MiHilo(int segundos) {
+            this.segundos = segundos;
         }
 
-        int codigo = p.waitFor();
-        System.out.println("Código de salida: " + codigo);
+        @Override
+        public void run() {
+
+            try {
+                Thread.sleep(segundos * 1000);
+
+                System.out.println(
+                        Thread.currentThread().getName()
+                        + " ha terminado después de "
+                        + segundos + " segundos");
+
+            } catch (InterruptedException e) {
+                System.out.println("Hilo interrumpido");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        long inicio = System.currentTimeMillis();
+
+        // Crear los tres hilos
+        Thread[] hilos = new Thread[3];
+
+        hilos[0] = new Thread(new MiHilo(1), "Hilo 1");
+        hilos[1] = new Thread(new MiHilo(2), "Hilo 2");
+        hilos[2] = new Thread(new MiHilo(3), "Hilo 3");
+
+        // Iniciar todos los hilos
+        for (int i = 0; i < hilos.length; i++) {
+            hilos[i].start();
+        }
+
+        // Esperar a que terminen todos
+        for (int i = 0; i < hilos.length; i++) {
+            try {
+                hilos[i].join();
+            } catch (InterruptedException e) {
+                System.out.println("Error esperando al hilo");
+            }
+        }
+
+        long fin = System.currentTimeMillis();
+
+        System.out.println("Tiempo total: "
+                + (fin - inicio) + " ms");
     }
 }

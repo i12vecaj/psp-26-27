@@ -1,0 +1,88 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+
+int main(int argc, char *argv[]) {
+
+    int numero;
+
+    // COMPROBAMOS SI ES EL PROCESO HIJO
+    if (argc > 1 && strcmp(argv[1], "hijo") == 0) {
+
+        numero = atoi(argv[2]);
+
+        // El hijo suma 4
+        printf("\n--- PROCESO HIJO ---\n");
+        printf("PID del hijo: %lu\n", GetCurrentProcessId());
+        printf("Valor recibido: %d\n", numero);
+
+        numero = numero + 4;
+
+        printf("Resultado (sumando 4): %d\n", numero);
+
+        return 0;
+    }
+
+    // PROCESO PADRE
+
+    // Pedimos un numero al usuario
+    printf("Introduce un numero: ");
+
+    if (scanf("%d", &numero) != 1) {
+        printf("Error: debes introducir un numero entero.\n");
+        return 1;
+    }
+
+    // Preparamos el comando para crear el proceso hijo
+    STARTUPINFO si;
+    PROCESS_INFORMATION pi;
+
+    ZeroMemory(&si, sizeof(si));
+    si.cb = sizeof(si);
+    ZeroMemory(&pi, sizeof(pi));
+
+    char comando[256];
+
+    sprintf(comando, "\"%s\" hijo %d", argv[0], numero);
+
+    // Creamos el proceso hijo
+    if (!CreateProcess(
+        NULL,
+        comando,
+        NULL,
+        NULL,
+        FALSE,
+        CREATE_NEW_CONSOLE,
+        NULL,
+        NULL,
+        &si,
+        &pi
+    )) {
+        printf("Error al crear el proceso hijo: %lu\n",
+               GetLastError());
+        return 1;
+    }
+
+    // El padre resta 5
+    printf("\n--- PROCESO PADRE ---\n");
+    printf("PID del padre: %lu\n", GetCurrentProcessId());
+    printf("PID del hijo: %lu\n", pi.dwProcessId);
+
+    printf("Valor original: %d\n", numero);
+
+    numero = numero - 5;
+
+    printf("Resultado (restando 5): %d\n", numero);
+
+    // Esperamos a que termine el hijo
+    WaitForSingleObject(pi.hProcess, INFINITE);
+
+    printf("\nEl proceso hijo ha terminado.\n");
+
+    // Cerramos los identificadores
+    CloseHandle(pi.hProcess);
+    CloseHandle(pi.hThread);
+
+    return 0;
+}
