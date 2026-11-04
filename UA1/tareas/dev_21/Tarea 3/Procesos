@@ -1,19 +1,106 @@
-import java.io.IOException;
 
-Public class Procesos Implements Runnable{
+import java.io.IOException;
+import java.io.File;
+import java.util.ArrayList;
+
+public class Procesos {
+
     public static void main(String[] args) {
-        if (args.length > 0 && args[0].equals("comprobar")) {
+
+        // COMPROBAMOS SI SOMOS EL PROCESO HIJO
+        if (args.length > 0 && args[0].equals("hijo")) {
+
+            // Comprobamos si falta el argumento
             if (args.length < 2) {
-                System.exit(1;)
+                System.exit(1);
             }
 
-            try{
+            try {
+
+                // Convertimos el argumento a entero
                 int numero = Integer.parseInt(args[1]);
 
+                // Comprobamos si es negativo
                 if (numero < 0) {
                     System.exit(3);
                 }
+
+                // Si es correcto
+                System.exit(0);
+
+            } catch (NumberFormatException e) {
+
+                // Si es una cadena
+                System.exit(2);
             }
+        }
+
+        // PROCESO PADRE
+        try {
+
+            // Creamos el comando para ejecutar esta misma clase
+            ArrayList<String> comando = new ArrayList<>();
+
+            String java = System.getProperty("java.home")
+                    + File.separator + "bin"
+                    + File.separator
+                    + (File.separator.equals("\\") ? "java.exe" : "java");
+
+            comando.add(java);
+            comando.add("-cp");
+            comando.add(System.getProperty("java.class.path"));
+            comando.add("Procesos");
+            comando.add("hijo");
+
+            // Añadimos los argumentos recibidos
+            for (String argumento : args) {
+                comando.add(argumento);
+            }
+
+            // Creamos el proceso hijo
+            ProcessBuilder pb = new ProcessBuilder(comando);
+
+            Process proceso = pb.start();
+
+            // Esperamos a que termine
+            int resultado = proceso.waitFor();
+
+            // Mostramos el resultado según su código de salida
+            System.out.println("El proceso hijo ha terminado.");
+
+            switch (resultado) {
+
+                case 0:
+                    System.out.println("El numero es correcto.");
+                    break;
+
+                case 1:
+                    System.out.println("No se ha introducido ningun argumento.");
+                    break;
+
+                case 2:
+                    System.out.println("El argumento es una cadena.");
+                    break;
+
+                case 3:
+                    System.out.println("El numero es negativo.");
+                    break;
+
+                default:
+                    System.out.println("Error desconocido.");
+                    break;
+            }
+
+            System.out.println("Codigo de salida: " + resultado);
+
+        } catch (IOException e) {
+
+            System.out.println("Error al crear el proceso: " + e.getMessage());
+
+        } catch (InterruptedException e) {
+
+            System.out.println("El proceso ha sido interrumpido.");
+            Thread.currentThread().interrupt();
         }
     }
 }
