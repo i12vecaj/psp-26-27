@@ -29,15 +29,15 @@ public class Planificador {
           int timeout = 0;
 
           for (int i=0; i< nombres.length; i++) {
-              if(procesos[i] != null) {
+              if(procesos[i] == null) {
                  error++;
                  continue;
               }
               try {
                   boolean terminado = procesos[i].waitFor(3, TimeUnit.SECONDS);
-                  if(terminado) {
+                  if(!terminado) {
                      procesos[i].destroy();
-                     System.out.println("Tarea " + nombres[i] + " Timeout cancelada");
+                     System.out.println("Tarea " + nombres[i] + " Timeout (cancelada)");
                      timeout++;
                   } else {
                     int codigo = procesos[i].exitValue();
@@ -50,7 +50,7 @@ public class Planificador {
                     }
                 Scanner sc = new Scanner(procesos[i].getInputStream());
                 while(sc.hasNextLine()) {
-                    System.out.println("[" + nombres[i] + "] " + sc.nextLine());
+                    System.out.println(" " + sc.nextLine());
                 }
                 sc.close();
               }
