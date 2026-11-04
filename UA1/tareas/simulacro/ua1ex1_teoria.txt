@@ -1,0 +1,33 @@
+NOMBRE: Miguel Sarmiento Morilla
+FECHA: 04/11/2026
+
+PARTE TEÓRICA
+
+a) Definición de programación concurrente.
+
+La programación concurrente es la forma de programar en la que varias tareas (procesos o hilos) avanzan a la vez, o al menos lo parece, porque sus instrucciones se van intercalando. Se puede dar en un solo procesador, donde las tareas se reparten el tiempo de CPU, o en varios. Las tareas pueden colaborar para conseguir un objetivo común o competir por los recursos del sistema, y por eso hacen falta mecanismos de comunicación y de sincronización. Además, el orden en el que se ejecutan no está fijado, así que el comportamiento es indeterminista.
+
+
+b) Diferencias entre un hilo y un proceso, y cómo se relacionan.
+
+Un proceso es un programa en ejecución. Cada proceso tiene su propio espacio de memoria, su propio PID y su propio PCB (el bloque donde el sistema operativo guarda sus datos), y es independiente de los demás. Un hilo, en cambio, es un flujo de ejecución que vive dentro de un proceso, y por eso se le llama proceso ligero.
+
+La diferencia principal es que los hilos de un mismo proceso comparten la memoria y los datos del proceso, mientras que dos procesos no comparten nada y tienen que comunicarse con ayuda del núcleo del sistema operativo (tuberías, señales, etc.). Por eso crear un hilo es más rápido y gasta menos recursos que crear un proceso, y comunicar hilos es más fácil, aunque compartir datos trae problemas de concurrencia.
+
+En cuanto a la relación, un proceso tiene como mínimo un hilo (el principal) y puede crear más. Todos esos hilos pertenecen al proceso y, si el proceso termina, los hilos también terminan. Por ejemplo, en Java creo un proceso hijo con ProcessBuilder y varios hilos con Thread dentro de la misma aplicación.
+
+
+c) Problemas de la programación concurrente (exclusión mutua y condición de sincronización).
+
+Exclusión mutua: ocurre cuando varios procesos o hilos acceden a la vez a un mismo recurso o variable y alguno de ellos lo modifica. Si uno escribe mientras otro lee o escribe, el resultado puede quedar corrupto. Por ejemplo, dos hilos que hacen contador++ sobre la misma variable pueden pisarse y perder una suma, o una base de datos que se actualiza mientras otro proceso la está leyendo. Se soluciona protegiendo la parte del código que toca ese recurso con una sección crítica, de forma que solo entre uno cada vez (en Java con synchronized).
+
+Condición de sincronización: es la necesidad de coordinar las tareas para que una espere a otra hasta que se cumpla algo. Por ejemplo, un proceso P1 que necesita que P2 termine antes de poder continuar. Un caso típico es el del padre que tiene que esperar a que el hijo acabe para leer su resultado, y para eso se usa waitFor() con procesos o join() con hilos.
+
+
+d) Diferencias entre programación paralela y programación distribuida, con ventajas e inconvenientes.
+
+La programación paralela está pensada para ejecutarse en un sistema multiprocesador: el problema se divide en partes y varias CPU trabajan a la vez para resolverlo, normalmente dentro de la misma máquina. La programación distribuida, en cambio, reparte los componentes (hardware o software) entre varios equipos conectados por una red, como pasa con Internet o la computación en la nube. Lo que busca la paralela es sobre todo ir más rápido, y lo que busca la distribuida es compartir recursos y servicios entre equipos.
+
+Ventajas de la paralela: se ejecuta de forma simultánea, baja el tiempo de ejecución y permite resolver problemas complejos. Inconvenientes: los compiladores y entornos son más complejos, los programas son más difíciles de escribir, gasta más energía y el acceso a los datos, la comunicación y la sincronización se complican.
+
+Ventajas de la distribuida: se pueden compartir recursos y datos, se puede crecer poco a poco añadiendo equipos, es más flexible, tiene alta disponibilidad (si falla un componente los demás siguen) y es abierta y heterogénea. Inconvenientes: aumenta la complejidad, hay problemas con la red (pérdida de mensajes, saturación), no existe un reloj global y tiene problemas de seguridad, como los ataques DDoS.
