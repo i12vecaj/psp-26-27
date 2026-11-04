@@ -1,0 +1,24 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+NOMBRE: Antonio E. Salces Romero
+FECHA: 04/11/2026
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+a) Definición de programación concurrente. 0,5 puntos 
+la programación concurrente es el tipo de programación que se usa a diario, sin el uso de IA y sin hilos asociados a un repo ni nada solo tu y tu programa en tu pc 
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos 
+Un hilo es lo que une un proyecto con un repo y un proceso es un conjunto de funciones, que tu programas que tienen relación entre si para la misma solución.
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos 
+Pues requiere un nivel muy alto de conceptos a parte al tenerlo en un pc solo sin ningún hilo ni nada en un repo es una exclusion mutua total, a la hora de sincronizar es bastante complicado 
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos 
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA. sirve para comodidad y rapidez, pero tu tienes que tener la idea y saber lo que quieres hacer al 100%, si no, no sirve de nada.
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos. 
+El principal que este mal, porque la IA aun que parezca que no, se equivoca y a parte de eso que no te de lo que tu le estas pidiendo o que te lo de mal, pues lo evitaría para empezar revisando todo y a parte si vas a recurrir a ella que es normal, explicándole al completo como funciona el programa o el código que estoy programando, para que los típicos errores del principio los omita y ya nos centremos en otros mas concretos.
+
+Notas:
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
