@@ -1,0 +1,102 @@
+Actúa como un experto en Java 17, programación concurrente, gestión de procesos e ingeniería de software.
+
+Quiero que crees una skill llamada **`hilos-procesos-java`** para mi agente de IA.
+
+### 1. Objetivo de la skill
+
+Crea un fichero `SKILL.md` que contenga instrucciones y reglas prácticas para ayudar a desarrollar, revisar y corregir programas Java que utilicen:
+
+- Procesos independientes mediante `ProcessBuilder`.
+- Hilos mediante `Thread` y `Runnable`.
+- Concurrencia y sincronización.
+- Comunicación entre procesos mediante entrada y salida estándar.
+- Espera de finalización de hilos y procesos.
+- Control de errores y calidad del código.
+
+La skill debe estar adaptada a los conceptos habituales de Java 17 trabajados en clase. No inventes reglas ni utilices librerías externas.
+
+### 2. Estructura obligatoria del SKILL.md
+
+El fichero debe incluir:
+
+**A. Cabecera YAML**
+
+Debe comenzar con una cabecera que contenga:
+
+- `name: hilos-procesos-java`
+- `description`: explicar claramente qué hace la skill y en qué situaciones debe utilizarse.
+
+**B. Reglas verificables**
+
+Incluye como mínimo 8 reglas, organizadas en tres categorías:
+
+**Procesos (mínimo 3 reglas):**
+1. Utilizar `ProcessBuilder` para lanzar procesos independientes.
+2. Gestionar correctamente la entrada estándar del proceso hijo mediante `getOutputStream()`.
+3. Recoger la salida del proceso hijo y obtener su código de finalización mediante `waitFor()` y `exitValue()` cuando corresponda.
+
+**Hilos y concurrencia (mínimo 4 reglas):**
+4. Crear los hilos mediante `Thread` y `Runnable`.
+5. Cada hilo debe trabajar con sus propios datos, evitando compartir variables modificables.
+6. Utilizar `join()` para esperar a que los hilos terminen antes de consultar sus resultados.
+7. Medir correctamente el tiempo de ejecución concurrente, desde el lanzamiento hasta la finalización de todos los hilos.
+
+**Calidad (mínimo 1 regla):**
+8. Utilizar nombres descriptivos, controlar las excepciones y mantener un código organizado y legible.
+
+Puedes añadir más reglas si aportan valor.
+
+Cada regla debe ser concreta, comprobable y explicar qué se debe hacer y qué se debe evitar.
+
+**C. Lista de comprobación final**
+
+Añade una checklist con casillas `[ ]` para comprobar que un programa cumple todas las reglas antes de entregarlo.
+
+### 3. Adaptación al ejercicio de clase
+
+Utiliza como referencia este ejercicio:
+
+Un teatro dispone de 200 entradas repartidas entre cinco taquillas, con cupos de 20, 30, 40, 50 y 60 entradas.
+
+Las cinco taquillas deben vender simultáneamente todas sus entradas.
+
+Cada venta tarda 5 milisegundos mediante `Thread.sleep(5)`.
+
+Cada taquilla debe ejecutarse como un hilo independiente y trabajar exclusivamente con sus propios datos.
+
+No se deben compartir variables modificables entre los hilos.
+
+El programa principal debe esperar mediante `join()` a que terminen todas las taquillas antes de leer sus resultados.
+
+Después debe mostrar:
+- Las entradas vendidas por cada taquilla.
+- El total vendido.
+- El tiempo empleado por las ventas concurrentes.
+
+A continuación, debe lanzar un proceso independiente llamado `Auditor`, utilizando `ProcessBuilder`.
+
+El proceso `Auditor` debe recibir dos líneas por entrada estándar:
+1. El aforo.
+2. El total vendido.
+
+Debe comprobar si el total coincide con el aforo y devolver estos códigos de salida:
+- `0`: total correcto.
+- `1`: total superior al aforo.
+- `2`: total inferior al aforo.
+- `3`: datos no válidos.
+
+El programa principal debe recoger la salida del Auditor y mostrar su código de salida.
+
+### 4. Restricciones técnicas
+
+La skill debe exigir que los programas desarrollados siguiendo sus instrucciones respeten:
+
+- Java 17.
+- Sin librerías externas.
+- Paquete por defecto, sin declaración `package`.
+- Clases con sus respectivos métodos `main` cuando corresponda.
+- Uso correcto de `ProcessBuilder`, `Thread`, `Runnable`, `join()`, `Thread.sleep()` y gestión de flujos.
+- Control de excepciones, especialmente `InterruptedException` e `IOException`.
+- No utilizar mecanismos innecesariamente avanzados que no se hayan trabajado en clase.
+
+No afirmes que has instalado o copiado los archivos si no has podido realizar realmente esas operaciones. Si no tienes acceso a las carpetas, proporciona el contenido completo y explícame dónde debo guardarlo manualmente.

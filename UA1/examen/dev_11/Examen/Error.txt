@@ -1,0 +1,1 @@
+Al usar el system.exit se me cortaba todo el flujo del resto de procesos debería haber usado el processbuilderpara evitar eso pero he caído al final
