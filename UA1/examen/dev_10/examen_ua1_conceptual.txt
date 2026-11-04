@@ -1,0 +1,41 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+NOMBRE:Jaime Rafael Gómez Velasco
+FECHA: 04/11/26
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+
+Responde con tus propias palabras.
+
+a) Definición de programación concurrente. 0,5 puntos
+
+    La programacion concurrente es la cual se ejecuta en el mismo lapso de tiempo. Puede usarse en un mismo nucleo o
+    en diferentes simultáneamente
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+
+    El proceso tiene su propia memoria y recursos. Mientras que los hilos utilizan parte de esa memoria. Un proceso
+    puede tener varios hilos a la vez, aunque cada hilo tiene su propia pila
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+
+    - La exclusion mutua es la perdida de información al programar a la vez y estar mal sincronizados por ejemplo si
+        hay más de uno operando una variable y uno la cambia y después se sobreescribe automáticamente, esa variable
+        ha perdido el dato que iba a usar el primero
+
+    - La condición de sincronización es la necesidad de estar muy bien sincronizados para que no se pierda información
+        ni se pisen entre ellos, por ejemplo que al estar mal sincronizados uno escribe y el otro automáticamente
+        lo borra, o directamente que uno necesite la respuesta de otro que todavía no haya empezado
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+
+
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+            Una skill es una series de normas y directrices o habilidad que le puedes dar a una IA para que trabaje de
+            una cierta manera, puede servirte para varios agentes.
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+
+Notas:
+
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
