@@ -1,0 +1,45 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+
+NOMBRE:
+FECHA:
+
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+
+a) Definición de programación concurrente. 0,5 puntos
+
+La programación concurrente es la programación en la que diferentes procesos se intercalan entre sí simultáneamente.
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+
+Un proceso es la ejecución de un programa en la memoria principal, mientras que los hilos son una unidad de ejecución del proceso.
+Los hilos realizan diferentes tareas divididas, es decir, un hilo puede servir para descargar, otro para reproducir la música etc. Y el conjunto de las diferentes tareas realizadas y en
+ejecución forman el proceso.
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+
+-Exclusión mutua: si comparten recursos, puede pasar que los programas protejan los recursos del otro.
+-Condición de sincronización: los programas no se sincronizan
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+
+La programación paralela consiste en diferentes CPUs realizando una tarea simultáneamente. Mientras que la programación distribuida son diferentes tareas para cada ordenador.
+-Programación paralela:
+	Ventaja: puede ser más veloz para realizar una tarea.
+	Desventaja: no es tan eficiente en el reparto de estas.
+
+-Programación distribuida:
+	Ventaja: es más útil para trabajos más extensos.
+	Desventaja: puede derivar en más problemas.
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+
+Riesgos:
+1. No sabes exactamente si lo que te ha entregado realmente se ajusta a lo que le has pedido, esto puede ocasionar errores como que la IA ha hecho cosas que tú no le has pedido,
+le falta alguna parte.
+Con hilos y procesos cuentas con la ventaja de que no te va a faltar ninguna parte sin depender de una IA que no conozca bien el contexto.
+
+2. La IA te hace una cosa que no satisface tu necesidad.
+Con hilos y procesos conoces exactamente tus necesidades y con ello un código que consigue tu objetivo.
