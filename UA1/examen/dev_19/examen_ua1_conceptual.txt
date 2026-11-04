@@ -1,0 +1,50 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+
+NOMBRE: Ian Montealegre Rockstad
+FECHA: 04/11/2026
+
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+
+a) Definición de programación concurrente. 0,5 puntos
+	-La programación concurrente es básicamente cuando los procesos se ejecutan de forma superpuesta. Un ejemplo:
+		-Tenemos 3 procesos:
+			-Proceso 1: 1 segundo
+			-Proceso 2: 2 segundos
+			-Proceso 3: 3 segundos.
+	-Los 3 procesos se ejecutaran a la vez, superpuestos entre si. Los 3 procesos acabaran en el tiempo que tarden, 3 segundos siendo el
+	proceso mas largo. Si fuese secuencial, primero haría el 1, luego el 2 y después el 3, haciendo que tarden 6 segundos.
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+	-Un proceso tiene sus propios recursos asignados (RAM).
+	-Un proceso es un programa que se ejecuta.
+	-Un hilo es la unidad mínima dentro de un proceso.
+	-El hilo comparte los recursos del proceso padre, no tiene sus propios recursos.
+	-Si un proceso muere, los demás procesos no se ven afectados, pero si un hilo muere, 
+	este se lleva a todos los hilos para abajo junto al proceso padre (Lo mata)
+	-Se relacionan entre si porque un hilo es la unidad mínima de un proceso, están directamente relacionados.
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+	-La exclusión mutua es cuando 2 procesos intentan acceder a la misma variable
+	-Un ejemplo es por ejemplo una base de datos. Un proceso intenta cambiar la variable mientras que otro intenta cambiar la misma variable.
+	-La condición de sincronización: Los procesos tienen que estar sincronizados para que no interfieran el uno con el otro en situaciones especificas, por ejemplo:
+		-Una base datos también. Un proceso cambia una variable al igual que otro la lee al mismo tiempo. La sincronización hace que el primer proceso cambie la variable, el otro 
+		se espere hasta que el cambio de la variable al que intento acceder suceda, y luego ya lee la variable actualizada.
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+	-La programación paralela literalmente hace que distintos procesos se ejecuten al mismo tiempo en los distintos núcleos o distintos procesadores.
+	-La programación distribuida, como bien indica en su nombre, distribuye las distintas tareas en varios ordenadores conectados entre si.
+	-La paralela usa los recursos de una sola maquina mientreas que la distribuida, cada maquina tiene sus propios recursos.
+	-La paralela es mas rápida pero poco escalable, ya que depende de una sola maquina mientras que la distribuida es muy escalable pero es mas compleja.
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+	-Una skill es una serie de "comandos" o guía para informar al agente como debe trabajar en dicho entorno. Hay varias skills y 
+	cambian el como piensa el agente dependiendo de la situación.
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+	-Codigo generado por IA sin revisarlo puede ser peligroso ya que al igual que nosotros, muchos usan las mismas IAs. Las IAs aprenden de nuestros códigos y suelen usar las mismas bases para otro usuarios. Esto es peligroso por que hace muy fácil encontrar vulnerabilidades en el código al igual que nos hackeen.
+
+Notas:
+
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
