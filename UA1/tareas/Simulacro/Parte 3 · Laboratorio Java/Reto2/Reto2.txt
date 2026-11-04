@@ -1,0 +1,39 @@
+PREDICCIONES
+
+- Si no envio fin ni cierro el flujo, se haria un bucle infinito, ya que no se cumplirian las dos condiciones.
+
+
+QUE HA PASADO
+
+Con fin y con close():
+HOLA
+MUNDO
+Resultado: 0
+
+Sin fin, pero con close():
+HOLA
+MUNDO
+Resultado: 0
+
+Sin fin y sin close():
+HOLA
+MUNDO
+(se queda parado, no aparece Resultado y hay que pararlo a mano)
+
+
+POR QUE
+
+- Coincide en que no termina nunca, pero no es un bucle infinito: esta bloqueado.
+  Un bucle infinito da vueltas gastando CPU. Aqui no se ejecuta nada, solo se espera.
+
+
+- Sin ninguna de las dos se esperan el uno al otro:
+    - Eco esta en readLine(), esperando otra linea o que se cierre el flujo.
+    - El padre esta en lector.readLine(), esperando mas salida o que Eco termine.
+
+
+
+
+
+  //Lo que el padre escribe con getOutputStream()  ->  le llega al hijo por System.in
+  //Lo que el hijo escribe en System.out           ->  el padre lo lee con getInputStream()

@@ -1,0 +1,27 @@
+1) PREDICCIONES
+
+- Secuencial (dos hijos de 2 s, uno tras otro): 4 s
+- Paralelo (dos hijos de 2 s a la vez): 2 s
+- Los tiempos seran exactos o saldra algo mas? Por que?: no lo se
+
+
+3) QUE HA PASADO
+
+Ejecucion 1:
+Secuencial: 4189 ms
+Paralelo: 2105 ms
+
+Ejecucion 2:
+Secuencial: 4202 ms
+Paralelo: 2109 ms
+
+Coincide: secuencial unos 4 s y paralelo unos 2 s.
+
+
+4) POR QUE
+
+- Secuencial: el segundo hijo no arranca hasta que acaba el primero, 2 s + 2 s.
+- Paralelo: los dos duermen a la vez, tarda lo que dura el mas largo, 2 s.
+- No son exactos: sale algo mas porque arrancar cada hijo cuesta tiempo (crear el proceso
+  y arrancar su JVM), ademas de medir y esperar. En secuencial se nota mas porque esos
+  arranques se suman, y en paralelo se solapan.

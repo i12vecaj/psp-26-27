@@ -1,0 +1,40 @@
+1) PREDICCIONES
+
+- El texto llega por getInputStream(), porque no da errores.
+- El codigo de salida es 0.
+- Un comando que no existe falla en waitFor(), porque no hay nada que esperar.
+
+
+3) QUE HA PASADO
+
+--- getInputStream() ---
+--- getErrorStream() ---
+java version "25" 2025-09-16 LTS
+Java(TM) SE Runtime Environment (build 25+37-LTS-3491)
+Java HotSpot(TM) 64-Bit Server VM (build 25+37-LTS-3491, mixed mode, sharing)
+Resultado: 0
+Error: Cannot run program "comando_que_no_existe": CreateProcess error=2, El sistema no puede encontrar el archivo especificado
+
+Comparacion:
+- Texto por getInputStream(): NO. Salio vacio, el texto llega por getErrorStream().
+- Codigo de salida 0: SI.
+- Falla en waitFor(): NO. Falla en start(). No se imprime "start() ha funcionado".
+
+
+4) POR QUE NO COINCIDE
+
+- java -version escribe su texto en la salida de errores (System.err), no en System.out.
+  Escribir ahi no significa que haya fallado: tambien se usa para mensajes informativos.
+  Lo que indica si ha ido bien es el codigo de salida, y aqui es 0.
+
+- Con un comando que no existe, start() lanza IOException porque el sistema operativo
+  no encuentra el programa. No se llega a crear ningun proceso, asi que nunca se llega a
+  waitFor(). La idea de "no hay nada que esperar" era buena, pero por eso mismo el fallo
+  tiene que ocurrir antes, en start().
+
+
+PARA RECORDAR
+
+  Lo que el hijo escribe en System.out  ->  getInputStream()
+  Lo que el hijo escribe en System.err  ->  getErrorStream()
+  Si ha terminado bien                  ->  waitFor() (0 = bien)

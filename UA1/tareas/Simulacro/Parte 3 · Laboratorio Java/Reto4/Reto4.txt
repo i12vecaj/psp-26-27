@@ -1,0 +1,30 @@
+PREDICCIONES
+- Todos los start() y luego todos los join(): 3/4 s
+- join() justo despues de cada start(): 6 s
+
+
+QUE HA PASADO
+
+Todos los start() y luego todos los join():
+Hilo-1 ha acabado
+Hilo-2 ha acabado
+Hilo-3 ha acabado
+Total: 3005 ms
+
+join() justo despues de cada start():
+Hilo-1 ha acabado
+Hilo-2 ha acabado
+Hilo-3 ha acabado
+Total: 6009 ms
+
+Coincide: unos 3 s y unos 6 s.
+
+
+POR QUE
+
+- start() y luego los join() en otro bucle: los tres hilos van a la vez, el total es lo
+  que dura el mas largo (3 s), no la suma.
+- join() justo despues de cada start(): main espera a que acabe un hilo antes de lanzar
+  el siguiente. Ya no van a la vez, el total es la suma (1 + 2 + 3 = 6 s).
+- join() no hace que un hilo vaya mas lento: bloquea a quien lo llama (main) hasta que
+  ese hilo termina.
