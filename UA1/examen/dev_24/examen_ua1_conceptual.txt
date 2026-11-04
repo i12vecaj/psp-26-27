@@ -1,0 +1,37 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+NOMBRE: Antonio Jesus Sanchez Gomez
+FECHA: 04/11/2026
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+a) Definición de programación concurrente. 0,5 puntos
+
+   - Programacion orientada a la delegacion de procesos en paralelo en las cuales tienen varios hilos , 
+     el proceso padre puede tener varios Hilos , que extienden o se implementan de el.
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+    - se relacionan por que los procesos contienen uno o mas hilos , el proceso es la función indicada mientras que los hilos 
+      son los diferentes procesos hechos en paralelo
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+   - la exclusión mutua es cuando varios procesos están modificando algún cambio critico en el programa, por ejemplo uno borra algo y otro lo modifica
+   - la condición de sincronización es sobre la jerarquía de actualización cuando varios procesos usan el mismo campo , como alguien comprueba un inventario o lo actualiza en el momento
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+   
+   - programación paralela , varios procesos hijo usados a la vez , mas lento , pero lleva varios a la vez
+   - la distribuida usa los procesos multiples de un hijo uno detrás de otro , mas rápido , pero solo uno a uno
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+     
+       -- Una Skills es un .md de técnicas de uso e instrucciones que usa una Inteligencia Artificial para gestionar un proyecto y operar
+ 
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+
+   --El código generado puede compilar pero no ser el correcto , puede tener partes diferentes y poco comprensibles para el desarrollador
+   , con un sistema de procesos podrías utilizar vario agentes mulitples hilos para que operen de manera coordinada, 
+     hagan el trabajo y otros los guien y corrijan o revisen con Skills
+
+Notas:
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
