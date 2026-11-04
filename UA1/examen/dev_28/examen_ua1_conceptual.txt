@@ -1,0 +1,34 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+NOMBRE: David Villena Sanchez de Medina
+FECHA: 04/11/26
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+a) Definición de programación concurrente. 0,5 puntos
+La programación concurrente es la cual transcurren varios procesos a la vez y puedes hacer otras cosas en segundo plano.
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+Un proceso es mucho es mas difícil que hacer que un hilo debido a que tienen que pasar un transcurso de pasos y en cambio los hilos son mucho mas sencillos de hacer debido a que tiene un padre y puede tener varios hijos y tienen una mayor complejidad de hacerlos y rapidez y pueden entrar estos hilos en el proceso.
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+Los problemas que tiene la programación concurrente en la exclusión mutua es cuando intentan borrar un archivo o algo de dentro dos personas a la vez y salta un error critico que lo defiende por ejemplo esto se podría dar el caso en una base de datos. La condición de sincronización es en la cual dos personas intentan actualizar por ejemplo una aplicación a la vez y le salta error critico.
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+La programación paralela es en la cual se trabaja desde un mismo ordenador pero trabajan con diferentes nucleos en cambio la programación distriubida es en la cual trabajen con diferentes dispositivos cada uno con sus nucleos.
+
+Programación paralela
+Inconveniente:
+Puedes perder toda la información que tienes ya que no la tienes en otra lugar guardado.
+Ventaja:
+Tienes mas rápidez al trabajar desde ese mismo ordenador debido a que tiene mas facilidad ya que no depende de nadie más.
+ 
+Programación distribuida
+Inconveniente:
+Dependes de los demás al trabajar con los demás ordenadores conectados y tendrás menos fluidez que al hacerlo solo.
+Ventaja:
+Tienes otros sitios donde tienes guardada la información en caso de perdida.
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+Una skill sirve para darle mas fluidez a la IA y que trabaje mas rápido y que gaste menos debido a que le das mas recursos y tiene una ayuda mas fácil para hacértelo mejor.
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+Uno de los riesgos que tienes que asumir si no revisa es que puede dejar sus marcas de agua. Otro de los riesgos es que también saltan sus metadatos que son de esa Ia.
+En un programa con hilos y procesos los puedes evitar haciendo tu el código a mano asi no tienes el problema de marca de agua y también el de metadatos es solucionable si lo vas haciendo tu también.
+Notas:
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
