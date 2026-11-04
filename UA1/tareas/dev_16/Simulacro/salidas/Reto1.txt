@@ -1,0 +1,11 @@
+--- Salida estándar (getInputStream) ---
+(vacío)
+--- Salida de error (getErrorStream) ---
+openjdk version "21.0.12.1" 2026-08-18 LTS
+OpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)
+Código de salida: 0
+
+--- Ampliación: comando inexistente ---
+Excepción capturada: IOException
+Mensaje: Cannot run program "comandoQueNoExiste": CreateProcess error=2, El sistema no puede encontrar el archivo especificado
