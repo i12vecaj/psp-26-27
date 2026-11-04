@@ -1,0 +1,69 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+NOMBRE: Juan Diego Delgado Morente
+FECHA: 04/11/26
+
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+
+a) Definición de programación concurrente. 0,5 puntos
+- La programación concurrente es la capacidad de un sistema o programa para gestionar y hacer avanzar varias tareas al mismo tiempo durante un mismo periodo.
+No significa necesariamente que se ejecuten en el mismo instante exacto, sino que las tareas pueden iniciarse, pausarse y entrelazarse compartiendo los recursos del ordenador
+para aprovechar mejor el tiempo y evitar que el programa se quede bloqueado esperando a que termine una sola operación.
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+
+Un proceso es, un programa en ejecución, como por ejemplo tener el navegador abierto. Es algo pesado al que el sistema operativo le asigna un espacio en memoria y unos recursos
+Dicho proceso no puede acceder directamente a la memoria de otro, por seguridad.
+
+Un hilo, es la unidad mas pequeña de ejecución, mucho mas ligero que un proceso y este representa una tarea concreta que se esta ejecutando paso a paso.
+
+Y un hilo no puede vivir sin existir un proceso, depende completamente de la existencia del mismo ya que una tarea o proceso esta compuesta de varios hilos.
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+
+ 1. Exclusión mutua:
+ Consiste en garantizar que, cuando un hilo o proceso está utilizando un recurso compartido que no se puede usar a la vez (llamado "sección crítica"), ningún otro pueda entrar a tocarlo hasta que el primero termine. Si dos hilos modifican el mismo dato al mismo tiempo, el resultado se corrompe (condición de carrera).
+ - Ejemplo: Dos personas comparten una cuenta bancaria con 100€ e intentan sacar 50€ exactamente a la vez desde dos cajeros distintos. Si no hay exclusión mutua, ambos cajeros leerán que hay 100€, ambos restarán 50€ y actualizarán el saldo a 50€, cuando en realidad debería quedar en 0€. Con exclusión mutua, el segundo cajero debe esperar un milisegundo a que el primero termine de actualizar el saldo antes de poder leerlo.
+
+ 2. Condición de sincronización:
+ Ocurre cuando las tareas dependen unas de otras y necesitan llevar un orden lógico. Es decir, un hilo no puede avanzar a partir de cierto punto hasta que otro hilo haya cumplido una condición previa o le dé una señal, por lo que debe quedarse esperando.
+ - Ejemplo: Una fábrica donde un robot empaqueta piezas que otro robot fabrica (el clásico problema del Productor-Consumidor). El robot que empaqueta no puede cerrar la caja si todavía está vacía; tiene una condición de sincronización que le obliga a pausarse y esperar hasta que el robot fabricante coloque la pieza dentro y le avise de que ya puede continuar.
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+
+ La diferencia principal está en dónde se ejecutan las tareas y cómo se comparte la memoria:
+ -En la programación paralela, dividimos un problema grande en partes más pequeñas para ejecutarlas exactamente en el mismo instante físico usando varios núcleos o procesadores dentro de UN MISMO ordenador (compartiendo la misma memoria RAM).
+ -En la programación distribuida, repartimos las tareas entre VARIOS ordenadores independientes (nodos) que tienen su propia memoria y su propio procesador, y que se comunican entre sí a través de una red (como Internet o una red local).
+
+ Programación Paralela:
+ * Ventajas:
+   - Es rapidísima en la comunicación, ya que todos los núcleos leen y escriben en la misma memoria RAM sin pasar por cables de red.
+   - Aprovecha al máximo el hardware actual.
+ * Inconvenientes:
+   - Está limitada físicamente: llega un punto en el que no puedes meter más procesadores ni más memoria dentro de una sola placa base.
+   - Es fácil sufrir cuellos de botella o errores de sincronización al competir todos por la misma memoria.
+
+ Programación Distribuida:
+ * Ventajas:
+   - Gran escalabilidad: si necesitas más potencia, simplemente conectas más ordenadores a la red.
+   - Tolerancia a fallos: si un ordenador se apaga o se rompe, los demás equipos de la red pueden asumir su trabajo y el sistema sigue funcionando.
+ * Inconvenientes:
+   - La comunicación por red es muchísimo más lenta que la memoria interna (hay latencia) y pueden perderse paquetes de datos.
+   - Es mucho más compleja de programar, mantener y proteger a nivel de seguridad, ya que los datos viajan por la red.
+
+e) Desarrollo de software con IA. 0,5 puntos
+
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+
+   Una skill es un recurso que se le puede "enseñar" a un agente de IA para que realize determinadas tareas de una manera concreta.
+
+   Ya sea a la hora de organizar información, de como hacer testing, incluso de como redactar código, etc.
+
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+
+   El principal riesgo, quitando el no revisar si quiera lo que esta haciendo el código, es no saber que está haciendo exactamente dicho código.
+   Como lo evitaría yo, primero me aseguraría de saber que se me está pidiendo y tener una idea de que es lo que tiene que hacer el programa y lo segundo
+   hacer pruebas de manera manual, no automatizadas, para comprobar si funciona de manera correcta o de la manera que queremos que funcione nuestro programa.
+Notas:
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
