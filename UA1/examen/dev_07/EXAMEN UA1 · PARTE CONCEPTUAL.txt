@@ -1,0 +1,50 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+
+NOMBRE: David Gálvez Martínez
+
+FECHA: 04/11/2026
+
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+
+Responde con tus propias palabras.
+
+a) Definición de programación concurrente. 0,5 puntos
+- La programación concurrente es un tipo de programación en el que varios procesos o hilos se ejecutan de forma simultánea, así compratiendo recursos del sistema.
+
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+- Un hilo es un programa en ejecución en el que transcurre dentro de el proceso.
+
+- Un proceso en un programa en el que es más complejo que el hilo ya que contiene todos los tipos de procesos de el programa (no solo el hilo).
+
+	-Se relacionan entre sí, ya que un proceso contiene un cierta cantidad de hilos que producen distinta cosa dentro de el proceso.
+
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+- La exclusión mutua se produce cuando dos usuarios están accediendo a un solo producto y van a comprar el mismo y queda solo ese, pues gracias a la excusión mutua no hace que se produzca el error de que a los dos les salga que el producto ha sido comprado (sino que a uno de los dos no va a poder comprarlo ya).
+
+- La condición de sincronización se produce como cuando un proceso tiene que hacer la espera, ya que un proceso diferente debe de intervenir antes que él, como por ejemplo cuando estás en un archivo 1 proceso 1 debe de crear el archivo antes de que el otro proceso lea dicho archivo (el que espera es el proceso que lee el archivo no el que lo crea). 
+
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+- La programación paralela es cuando tienes varios procesos pueden trabajar ala vez mientras se distribuye distinta CPU del equipo.
+
+- La programación distribuida es cuando varios procesos trabajan en una misma red pero en distintos equipos, es decir, todos los procesos vienen de un mismo lado (CPU), pero se dividen en distintos sitios siendo de la misma red.
+
+-La clara diferencia es que la paralela, todos los procesos trabajan en un mismo esquipo y la distribuida, trabajan con la misma CPU pero en distintos equipos.
+
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+	. Una skill que dejas ordenado un proceso que se va a ejecutar.
+
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+	. Al no revisar el código que ter ha asociado la IA no sabes exactamente que tipo de código ha generado y no sabes si realmente te ha asociado lo que 	le has pedido.
+
+	. Al no asociar unas pautas iniciales que siempre se debe de hacer cuando trabajas con la IA, puede hacerte el código bien pero con cosas que por ejemplo utu no has tocado o dado nunca y puede hacer que no tengas bien el proceso JAVA por no asociar como quieres el trabajo o qué métodos.
+
+
+Notas:
+
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
