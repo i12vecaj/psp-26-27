@@ -1,0 +1,31 @@
+NOMBRE: dev_15
+FECHA: 04/11/2026
+
+PARTE TEÓRICA (25 minutos, sin acceso a internet)
+
+a) Definición de programación concurrente. 1 punto.
+
+La programación concurrente es cuando un programa tiene varias tareas (procesos o hilos) en marcha al mismo tiempo y sus instrucciones se intercalan. Puede ser a la vez de verdad en varios núcleos o turnándose en uno solo, y las tareas pueden colaborar entre ellas o competir por los recursos.
+
+b) Utilizando tus propias palabras, indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 3 puntos.
+
+Un proceso es un programa en ejecución, con su propia memoria y su PCB, y es independiente de los demás procesos. Un hilo es una parte de un proceso que hace una tarea; todo proceso tiene al menos un hilo (el main) y puede tener más.
+Los hilos de un mismo proceso comparten su memoria y sus datos, así que se comunican sin pasar por el sistema operativo, mientras que los procesos tienen la memoria separada y para comunicarse necesitan pipes, ficheros o señales.
+Crear un hilo es más rápido y gasta menos que crear un proceso (por eso se llaman procesos ligeros).
+Si un hilo falla puede tirar el proceso entero con todos sus hilos, en cambio si un proceso muere los demás siguen funcionando.
+
+c) Utilizando tus propias palabras, indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 3 puntos.
+
+Como las tareas concurrentes comparten cosas (una variable, un fichero, una base de datos) aparecen dos problemas.
+La exclusión mutua es que hay recursos que solo puede usar una tarea a la vez, porque si entran dos se estropean los datos. La parte del código que usa ese recurso es la sección crítica y hay que protegerla. Ejemplo: dos hilos sacan 50 € de una cuenta con 100 € a la vez, los dos leen 100 y el saldo se queda en 50 en vez de 0. En Java se arregla con synchronized.
+La condición de sincronización es cuando una tarea tiene que esperar a que otra haga algo antes de seguir. Ejemplo: el padre que hace waitFor() o wait() y no sigue hasta que el hijo termina, o un consumidor que no puede coger datos hasta que el productor los ha metido.
+
+d) Utilizando tus propias palabras, indica las diferencias entre programación paralela y programación distribuida, con ventajas e inconvenientes de cada una. 3 puntos.
+
+La programación paralela reparte el problema entre varios procesadores o núcleos del mismo ordenador, que trabajan a la vez y comparten la memoria. La distribuida reparte el trabajo entre varios ordenadores conectados por una red, cada uno con su memoria, y se comunican con mensajes (sockets, RPC, RMI). El ejemplo típico es Internet.
+Paralela, ventajas: se ejecuta todo a la vez, tarda menos y permite resolver problemas complejos. Inconvenientes: los programas y los compiladores son más complicados, gasta más energía, el acceso a los datos y la sincronización son más difíciles y está limitada por los núcleos del ordenador.
+Distribuida, ventajas: se comparten recursos y datos, puede crecer añadiendo más equipos, es flexible, tiene alta disponibilidad porque si uno falla los demás siguen, y admite equipos distintos. Inconvenientes: es más compleja, depende de la red (mensajes perdidos, saturación), no hay un reloj común y tiene más problemas de seguridad (por ejemplo ataques DDoS).
+
+Notas:
+
+El nombre del fichero .txt a entregar debe ser: examen\dev_X\ua1ex1_teoria.txt
