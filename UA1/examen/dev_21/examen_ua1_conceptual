@@ -1,0 +1,29 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+NOMBRE: Juan Raigón Mínguez
+FECHA: 04/11/2026
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+a) Definición de programación concurrente. 0,5 puntos
+La programación concurrente es un tipo de programación la cual se basa en varias tareas que actuan de manera simultánea e intercalada y que acaban en un mismo destino.
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+Un proceso es su propio ente significando que tiene su propia memoria y actua como tal de maneraa independiente, en cambio un hilo puede derivar perfectamente de un proceso lo cual significa que este mismo hereda toda la memoria que tuviera su "padre" .
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+Los problemas principales serían la exclusión mutua y condición de sincronización. La exclusíon mutua se da cuando dos hilos o incluso procesos buscan y/o cambian datos en un mismo lugar lo cual da errores ya que uno no se espera ni respeta al otro y por otro lado la condición de sincronización es el hecho de tener que esperar a que acaben los demás hilos/procesos para finalizar aunque ya haya terminado su tarea. 
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+Las diferencia principal sería el como se reparten las tareas ya que la programación paralela hace sus procesos de forma simultánea gracias a que usa varias CPU en el mismo dispositivo y aunque la programación distribuida sea esencialmente lo mismo lo que lo diferencia es el hecho de que no se realizan las tareas en un solo dispositivo sino que se usan varios dispositivos conectados entre si por una red.
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+ Una skill es esencialmente un manual para la IA, es un fichero binario el cual contiene como debe procesar las solicitudes hechas por el usuario de una forma concreta.
+
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+ La posibilidad de que la IA haga lo que quiera con el código sin seguir bien las instrucciones y que no esté lo suficientemente optimizado (tambien se puede dar que la IA de datos o caracteres invisibles, lo cual puede afectar al código) y la manera de evitarlo sería hacer un proceso con sus correspondientes hilos que lo ejecuten en segundo plano y comprueben por este tipo de fallas.
+
+
+
+Notas:
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
