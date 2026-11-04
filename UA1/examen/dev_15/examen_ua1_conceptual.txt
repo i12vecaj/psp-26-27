@@ -1,0 +1,42 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+
+NOMBRE: Andrés
+FECHA: 04/11/2026
+
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+
+a) Definición de programación concurrente. 0,5 puntos
+La programacion concurrente es la programacion donde se gestionan varios procesos e hilos estos pueden trabajar juntos o independientemente pero han de llevar un orden
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+Un proceso tiene una memoria asignada independiente a otros procesos, esto significa que tiene posibilidad de usar toda la memoria asignada a el, puede tener un proceso padre o hijo.
+Un hilo es digamos un “brazo”de un proceso, comparte la memoria asignada que tiene el proceso entre todos los hilos y se ve limitado ya que esta memoria puede estar siendo consumida por otro hilo que limita su rendimiento
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+La programacion conncurrente se basa en que varios procesos e hilos trabajen al mismo tiempo, la condicion de sincronización hace que ciertos procesos que tienen que esperar a otros para terminar o para completar una función se sincronizan entre si y asi el flujo no se rompa
+
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+La programación paralela y distribuida son 2 conceptos distintos, 
+
+
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+Una skill literalmente es una “habilidad” que le damos a nuestra ia brutalmente hablando, la skill es basicamente una cantidad de instrucciones, pautas y recursos que nosotros le damos a nuestra ia para que realice alguna acción como nosotros queramos, se puede aplicar en distintos entornos, por ejemplo:
+Una skill que enseñe a realizar paginas web con un cierto estilo y/o habilidad
+Una skill que enseñe a hacer ingeniería inversa y como
+Aunque también podemos crear una skill por ejemplo que ayude a nuestra ia a escribir documentos como si los escribiéramos nosotros, aunque dependiendo de la complejidad, se podria usar un simple .md tipo taste.md que siga unas simples directrices.
+-
+Los riesgos de usar codigo generado con ia sin revisarlo son varios, podemos ir desde cosas sencillas como que la ia no haya entendido nuestro enfoque, y haya hecho algo que no queríamos, o que haya extendido mucho el funcionamiento de algo que nosotros queríamos mas simple (esto suele pasar con modelos mas potentes)
+Hasta problemas mayores como por ejemplo que dejen vulnerabilidades o fallos fatales y al nosotros no revisar y confiar ciegamente en ella que deje estos fallos ahi.
+Hoy en dia si es cierto que la ia está muy avanzada y modelos buenos como por ejemplo opus 5.5 de anthropic no cometen fallos garrafales, pero siempre es recomendable revisar el código generado por nuestros agentes.
+
+Notas:
+
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
+
+
