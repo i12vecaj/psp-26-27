@@ -1,0 +1,57 @@
+EXAMEN UA1 · ACTIVIDAD 2: HILOS CON IA Y SKILL (4 puntos)
+Nombre: Juan Raigón Mínguez
+Fecha: 04/11/2026
+
+Tiempo: 60 minutos · Individual · Se permite usar el agente de IA indicado por el profesor solo en esta actividad. No se permite compartir material con otros compañeros.
+
+Qué se pide
+Desarrollar con ayuda de un agente de IA la aplicación descrita abajo, apoyándote en una skill que crearás tú sobre procesos e hilos en Java. Debes revisar críticamente lo que genere la IA: eres responsable del resultado final.
+
+La aplicación
+Un teatro tiene un aforo de 200 entradas repartido entre cinco taquillas, cada una con su propio cupo: 20, 30, 40, 50 y 60 entradas. Las cinco taquillas venden a la vez, y cada una vende solo las entradas de su cupo. Cada venta tarda 5 milisegundos (simúlalo con Thread.sleep(5)). Cuando todas terminan, el sistema muestra cuántas ha vendido cada taquilla, el total y el tiempo que han tardado las ventas. Después, el sistema lanza un proceso independiente llamado Auditor, le envía el aforo y el total vendido, y muestra su respuesta y su código de salida. El Auditor comprueba si el total coincide con el aforo.
+
+Requisitos técnicos (obligatorios)
+Java 17, sin librerías externas y sin paquete (paquete por defecto).
+La clase principal se llama SistemaVentas y el proceso independiente es la clase Auditor (cada una con su main).
+Las taquillas son hilos que trabajan con sus propios datos: no se comparten variables modificables entre hilos. El programa principal solo lee el resultado de cada taquilla cuando esta ha terminado.
+SistemaVentas debe escribir exactamente estas líneas, en este orden:
+Una línea por taquilla: Taquilla N: V entradas (N de 1 a 5).
+Total vendido: T de 200
+Tiempo de ventas: X ms (desde que se lanzan las taquillas hasta que han terminado todas).
+La salida del Auditor, tal como la escribe.
+Codigo del auditor: C
+Auditor recibe por su entrada estándar dos líneas (primero el aforo y luego el total vendido), escribe una línea con su veredicto y termina con estos códigos de salida:
+0: el total coincide con el aforo.
+1: el total es mayor que el aforo.
+2: el total es menor que el aforo.
+3: los datos no son válidos.
+Pasos obligatorios
+Crear la skill hilos-procesos-java, con un fichero SKILL.md que cumpla:
+Cabecera con name y description (qué hace y cuándo debe usarse).
+Mínimo 8 reglas verificables basadas en lo visto en clase: al menos 3 de procesos, 4 de hilos y concurrencia y 1 de calidad.
+Una lista de comprobación final.
+Puedes pedir ayuda a la IA para redactarla, pero las reglas deben ser correctas y estar adaptadas a lo que hemos trabajado.
+Colócala en la carpeta de skills de tu agente para que la use y copia el fichero a la carpeta de entrega.
+Pedir a la IA que genere el programa, indicándole los requisitos de arriba y que siga tu skill.
+Compilar y ejecutar el resultado. Comprueba que cumple los requisitos. Ejecútalo al menos 3 veces y fíjate en dos cosas: que el total sea 200 y que el tiempo de ventas se parezca al de la taquilla más lenta (unos 300 ms), no a la suma de todas (unos 1000 ms).
+Corregir lo que haga falta. Eres el responsable del código final.
+Escribir el informe INFORME_IA.md (máximo una página) con:
+El texto que le diste a la IA para generar el programa.
+Al menos un fallo o mejora que detectaste en lo que generó y cómo lo corregiste.
+Un ejemplo concreto de cómo influyó una regla de tu skill en el resultado.
+Cómo comprobaste que las taquillas venden a la vez y que el total es correcto.
+Entrega por git
+Sube tu trabajo a tu rama dev_XX, dentro de la carpeta UA1/examen/dev_XX/EJ2/:
+
+UA1/examen/dev_XX/EJ2/
+├── skill/hilos-procesos-java/SKILL.md
+├── src/                  (todos los .java, sin paquete)
+└── INFORME_IA.md
+No subas ficheros compilados (.class), configuración del IDE ni carpetas propias de tu agente de IA.
+
+Criterios de evaluación (4 puntos)
+Criterio	Puntos
+Skill: estructura, descripción y reglas correctas	1,25
+Uso de la IA con la skill (instrucciones claras y reflejo en el resultado)	0,5
+Código funcional: hilos a la vez, resultados correctos y proceso Auditor	1,5
+Revisión crítica e informe	0,75
