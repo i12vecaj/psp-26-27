@@ -1,0 +1,44 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+NOMBRE: Álvaro Gil Luque
+FECHA:04/11/2026
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+a) Definición de programación concurrente. 0,5 puntos
+
+tecnica de programacion en la que varias tareas van al mismo tiempo
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos
+
+las diferencias ebtre un hilo y un proceso son que el hilo es el contenedor y el hilo la tarea que esta trabajando dentro de el
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos
+
+la programacion concurrente es la programacion en la que podemos ejecutar varios programas,
+el problema de esto de la exlusion mutua es que los hilos se chocan cuando acceden a la misma vez y tienen que bloquearse el uno al otro para poder ejecutarse
+y la condicion de sincronizacion es cuando necesitamos que un hilo termine para que el otro pueda continuar
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos
+
+la diferencia entre programacion paralela y distribuida es que en la programacion paralela se ejecutan varias tareas al mismo tiempo, la ventaja es que es mas rapida pero necesitamos mas recursos
+y la programacion distribuida es cuando las tareas las ejecutamos pero desde diferentes ordenadores que estan conectados todos entre si, esto es bueno debido a que pueden hacer el trabajo entre varias personas a la vez pero depende de la conexion por la q estan conectados
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+
+   una skill es una direccion que nosotros le mandamos a la IA para que cuando la lea sepa directamente lo que tiene que hacer de manera mas facil y rapida en todo momento
+
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+
+   los riesgos de usar codigo generado por ia sin revisarlo pueden ser:
+   pueden generar fallos, para esto nosotros deberiamos de revisarlo y ejecutarlo para ver que va todo de manera correcta
+   puede aver problemas con los directorios que en ese caso nosotros mismos tendriamos que mover el codigo al directoriio correspondiente
+
+
+
+Notas:
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
+
+
+
+
