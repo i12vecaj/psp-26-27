@@ -1,0 +1,35 @@
+1. ¿Qué diferencias hay entre un proceso y un hilo, y cómo se relacionan?
+
+Un proceso es un programa en ejecución que tiene su propia memoria y recursos. Un hilo es una unidad de ejecución dentro de un proceso. Un proceso puede tener varios hilos que comparten la memoria y los recursos del proceso.
+
+Crear un proceso suele ser más costoso que crear un hilo. Además, la comunicación entre hilos es más sencilla porque comparten memoria.
+
+Ejemplo: un navegador puede tener varios hilos para cargar páginas, reproducir vídeos y responder a las acciones del usuario.
+
+2. ¿Qué es la programación concurrente y qué problemas plantea?
+
+La programación concurrente permite que varias tareas progresen durante el mismo periodo de tiempo, alternándose o ejecutándose simultáneamente.
+
+Plantea dos problemas principales:
+
+- Exclusión mutua: ocurre cuando varios hilos acceden al mismo recurso compartido y pueden provocar resultados incorrectos. Se soluciona permitiendo que solo un hilo acceda a la sección crítica a la vez.
+
+Ejemplo: dos hilos incrementan una misma variable al mismo tiempo y se pierde uno de los incrementos.
+
+- Condición de sincronización: ocurre cuando un hilo debe esperar a que otro realice una acción antes de continuar.
+
+Ejemplo: un hilo debe esperar a que otro hilo introduzca datos en un búfer antes de poder leerlos.
+
+3. ¿Qué diferencias hay entre programación paralela y programación distribuida? Ventajas e inconvenientes.
+
+La programación paralela consiste en ejecutar varias tareas al mismo tiempo utilizando varios núcleos o procesadores de un mismo ordenador.
+
+Su ventaja es que permite realizar cálculos más rápidamente. Su inconveniente es que hay que coordinar las tareas y controlar el acceso a los recursos compartidos.
+
+Ejemplo: procesar imágenes utilizando varios núcleos de un ordenador.
+
+La programación distribuida consiste en ejecutar tareas en varios ordenadores conectados mediante una red que colaboran para resolver un problema.
+
+Su ventaja es que permite repartir el trabajo y aumentar la capacidad del sistema. Su inconveniente es que depende de la red y puede haber fallos de comunicación.
+
+Ejemplo: una página web que reparte las peticiones entre varios servidores.
