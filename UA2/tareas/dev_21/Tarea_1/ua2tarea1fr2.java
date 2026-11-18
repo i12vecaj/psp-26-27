@@ -1,26 +1,3 @@
-//DESTRIPANDO MI CÓDIGO
-
-/*
-*
-A diferencia del anterior ejercicio, al estar sincronizados esperan a poder acceder a los recursos
-* de esta manera controlamos el acceso (es por esto posiblmente que decíamos en clase que
-* los procesos compiten entre ellos) para que cada hilo espera a que otro termine para así imprimir el contenido
-*
-* RESULTADO DE LA PRIMERA EJECUCIÓN REALIZADA
-*
-Hilo: 31
-Contador: 1000
-Hilo: 34
-Contador: 2000
-Hilo: 33
-Contador: 3000
-Hilo: 35
-Contador: 4000
-Hilo: 32
-Contador: 5000
-
- */
-
 public class ua2tarea1fr2 {
     static int cont=0;
 
