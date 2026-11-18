@@ -1,0 +1,32 @@
+a) ¿Qué es la programación concurrente?
+
+Es cuando varias tareas van avanzando durante el mismo tiempo.
+Por ejemplo, si solo hay un núcleo, las tareas se van turnando
+para usarlo.
+
+b) ¿Qué diferencia hay entre un proceso y un hilo?
+
+Un proceso es un programa que se está ejecutando y que tiene su
+propia memoria. Dentro de un proceso puede haber varios hilos.
+Cada hilo puede hacer una tarea distinta y todos pueden usar
+los datos del mismo proceso.
+
+c) ¿Qué son la exclusión mutua y la condición de sincronización?
+
+La exclusión mutua sirve para que solo un hilo a la vez pueda
+usar una parte del código. Por ejemplo, si dos hilos suman al
+mismo contador, se turnan para que no se pierda ninguna suma.
+
+La sincronización sirve para que una tarea espere hasta que pase
+algo. Por ejemplo, si un hilo va a leer un dato, puede esperar
+hasta que otro hilo lo haya guardado.
+
+d) ¿Qué diferencia hay entre programación paralela y distribuida?
+
+En la paralela se hacen varias tareas al mismo tiempo, por
+ejemplo, usando varios núcleos del ordenador. Así se puede
+acabar antes, pero es más complicado coordinar las tareas.
+
+En la distribuida varios ordenadores conectados por red se
+reparten el trabajo. La ventaja es que se pueden añadir más
+equipos. El problema es que la conexión puede ir lenta o fallar.
