@@ -1,0 +1,10 @@
+=== Caso normal: envío hola, mundo y fin ===
+Eco responde: HOLA
+Eco responde: MUNDO
+Código de salida del hijo: 0
+
+=== Ampliación: NO envío fin ni cierro el flujo ===
+El hijo sigue esperando datos tras 3 s -> destroy()
+Eco responde: HOLA
+Eco responde: MUNDO
+Código de salida del hijo: 1

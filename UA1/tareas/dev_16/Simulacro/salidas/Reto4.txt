@@ -1,0 +1,15 @@
+=== A) start() de todos y join() en un segundo bucle ===
+  Termina Hilo-1 (1 s)
+  Termina Hilo-2 (2 s)
+  Termina Hilo-3 (3 s)
+main: total 3018 ms
+=== B) join() justo después de cada start() ===
+  Termina Hilo-1 (1 s)
+  Termina Hilo-2 (2 s)
+  Termina Hilo-3 (3 s)
+main: total 6026 ms
+=== C) Ampliación: sin join() ===
+main: total 1 ms
+  Termina Hilo-1 (1 s)
+  Termina Hilo-2 (2 s)
+  Termina Hilo-3 (3 s)
