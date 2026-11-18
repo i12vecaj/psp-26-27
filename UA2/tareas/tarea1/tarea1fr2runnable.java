@@ -1,0 +1,48 @@
+package UA2.Tarea1;
+
+
+public class tarea1fr2runnable {
+
+    static int contador = 0;
+
+    public static synchronized void incrementar() {
+        contador++;
+    }
+
+    static class MiTarea implements Runnable {
+
+        @Override
+        public void run() {
+            for (int i = 0; i < 1000; i++) {
+                incrementar();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Thread[] hilos = new Thread[5];
+
+        try {
+            for (int i = 0; i < 5; i++) {
+                MiTarea tarea = new MiTarea();
+                hilos[i] = new Thread(tarea);
+                hilos[i].start();
+            }
+
+            for (int i = 0; i < 5; i++) {
+                hilos[i].join();
+            }
+            
+            System.out.println("Contador final: " + contador);
+            System.out.println("Resultado esperado: 5000");
+
+        } catch (InterruptedException e) {
+            System.err.println("Error: el hilo principal ha sido interrumpido.");
+            Thread.currentThread().interrupt();
+        } catch (Exception e) {
+            System.err.println("Error inesperado: " + e.getMessage());
+        }
+    }
+}
+
