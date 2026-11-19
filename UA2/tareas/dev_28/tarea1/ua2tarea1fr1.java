@@ -1,5 +1,17 @@
 public class ua2tarea1fr1 {
 
+
+    //Principal problema que todos los hilos se ejecutan al mismo tiempo
+    // eso no es el metodo que queremos que ocurra explicado en clase el que esta pasando actualmente
+    // (secuencial) y nosotros lo queremos poner de manera concurrente
+
+    // por eso en los resultados que he puesto abajo al final del codigo salen todos 5000 debido a que
+    // se ejecutan todos a la vez de manera(secuencial)
+    // entonces tenemos que dormirlos un par de segundos y
+    // usar lo visto hoy en clase como el synchronized que esta en el apartado de ua2tarea1fr2runnable
+    // o los join para juntarlos o conectarlos
+
+    //Aqui ponemos el contador que empieze en 0
     static  int contador = 0;
 
 
