@@ -2,17 +2,16 @@ package actividad1UA2;
 
 import java.util.Objects;
 
-/** FR1: El resultado logico o racional indica que deberian de ser 1000 * 5, pero como
-     directamente saca por pantalla 5 veces 1000
+/** FR1: El resultado logico o racional indica que deberian de ser 1000 * 5.
      Resultado:
      Contador: 1000
-     Contador: 1000
-     Contador: 1000
-     Contador: 1000
-     Contador: 1000***/
+     Contador: 2000
+     Contador: 3000
+     Contador: 4000
+     Contador: 5000***/
 
 public class CincoHilos implements Runnable{
-    int contador_global = 0;
+    private int contador_global = 0;
     Object llave = new Object();
 
     @Override
@@ -36,6 +35,15 @@ public class CincoHilos implements Runnable{
         h3.start();
         h4.start();
         h5.start();
+
+        h1.join();
+        h2.join();
+        h3.join();
+        h4.join();
+        h5.join();
+
+        System.out.println();
+        System.out.println("RESULTADO FINAL: "+tarea.contador_global);
     }
 
 }
