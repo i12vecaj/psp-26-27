@@ -1,0 +1,58 @@
+EXAMEN UA1 · PARTE CONCEPTUAL (3 puntos)
+NOMBRE:Manuel Barrera Baena	
+FECHA: 04/11/2026
+Tiempo: 20 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+a) Definición de programación concurrente. 0,5 puntos:
+
+La programación concurrente es el modo de diseño de programas y aplicaciones en el que varios procesos se están ejecutando al mismo tiempo o de manera sincronizada con 
+el fin de conseguir una ejecución más eficiente de las instrucciones que aplicamos, hace posible sincronizar procesos que de otra forma no sería posible y consigue una 
+programación más eficaz y organizada.
+
+b) Indica las diferencias entre un hilo y un proceso, y cómo se relacionan entre sí. 0,75 puntos.
+
+Dentro de un propio hilo pueden ejecutarse varios procesos, y varios hilos pueden estar ejecutándose a la misma vez sin estos compartir memoria, a diferencia de los 
+procesos, que si tienen que, por así decirlo, "competir" por los recursos del sistema, esto se puede enfrentar sincronizando los procesos para que se compatibilicen 
+más que para que compitan por dichos recursos, sin embargo, aunque sincronicemos a la perfección, siguen compartiendo un recurso que es la memoria del sistema.
+
+c) Indica los problemas de la programación concurrente (exclusión mutua y condición de sincronización) y pon un ejemplo de cada uno. 0,75 puntos.
+
+Con respecto a la exclusión mutua, se refiere a que si ambos programas intentan interactuar con un mismo dato a la vez esta interacción puede verse comprometida e inclu-
+so imposibilitada, el ejemplo claro es por ejemplo que intenten acceder a la vez a un dato de una base de datos, al no poder acceder a la vez ambos procesos serán in-
+compatibles y puede dar lugar a error.
+
+Por otro lado, la condición de sincronización, es importante dedicar tiempo y esfuerzo a la hora de diseñar eficientemente una programación concurrente ya que tenemos que
+prestar especial atención a que los distintos procesos se realicen en el momento y orden adecuado, si no es así, el resultado puede ser muy distinto al esperado. Un ejem-
+plo podría ser en el caso de que quisiesemos ejecutar la misma instrucción pero con nombres diferentes en una búsqueda en una base de datos, si no sincronizamos bien el cambio
+de nombre en la instrucción obtendremos dos veces el mismo resultado.
+
+d) Indica las diferencias entre programación paralela y programación distribuida, con una ventaja y un inconveniente de cada una. 0,5 puntos.
+La programación paralela es la presencia de varios programas en un mismo dispositivo con distintos procesadores, como si estuviesen trabajando distintos equipos pero
+estando presentes en el mismo dispositivo, la ventaja es que es una programación muy eficiente, muy rápida, y muy sincronizable, sin embargo, tiene unos requisitos téc-
+nicos que pueden ser bastante exigentes.
+Por otro lado, la programación distribuida es la que se encuentra en servicios web, por así decirlo, la carga de los procesos la lleva más un servidor que el propio dis-
+positivo, lo cual puede hacerla muy rápida y eficaz independientemente de los dispositivos que estemos utilizando, sin embargo, al depender de la red, si la red falla,
+todo falla, y hay muchos contextos en lo que esto no es una opción.
+
+e) Desarrollo de software con IA. 0,5 puntos
+   - Explica qué es una skill y para qué sirve al trabajar con un agente de IA.
+	Una Skill es un documento que le aporta información al agente de inteligencia artificial de las especificaciones de como queremos que trabaje, por así decirlo
+personaliza nuestro agente, lo cual lo hace una herramienta mucho más eficiente, cuando implementamos skills en los agentes hacemos que estos actúen de una forma más
+cercana a la que buscamos con nuestros prompts, no tenemos que prestar tanta atención a cada uno de los prompts ya que ya hemos establecido las pautas por las que 
+queremos que el agente se rija.
+
+   - Indica dos riesgos de usar código generado por IA sin revisarlo y cómo los evitarías en un programa con hilos y procesos.
+	Uno de los riesgos es que al agente le puede faltar contexto de nuestro proyecto, posibles directorios que alomejor no le hemos pasado, o información que por 
+confidencialidad de la empresa no hayamos podido transmitirle hace que pueda faltarle información importante, y en el aspecto de la programación, cualquier error puede
+hacer que el código tenga un error que impida que el código se ejecute. En un programa con procesos diferenciados, haría que tuviese distintas partes de comprobación de
+código y redirigiendo los mensajes de error al mismo stream podríamos ir viendo más claramente que está ocurriendo poco a poco en nuestro programa sin ver la pantalla un 
+mensaje de error apenas comprensible en pantalla.
+
+	Otro riesgo es la falta de interpretación humana o de usabilidad, muchos procesos pueden ser muy claros y lógicos a nivel de programación pero si el programa 
+no aporta un feedback o alguna notificación de que el proceso sigue corriendo puede ser que el usuario desespere, intente ejecutar el programa varias veces, inicie dis-
+tintos procesos, y en ocasiones, la inteligencia artificial puede no tener en cuenta este tipo de situaciones. En un programa con procesos implementaría por ejemplo 
+procesos que puedan dar notificaciones de que algo ya está ocurriendo aunque no lo parezca si el usuario intenta ejecutar de nuevo, o textos que expliquen que puede tardar 
+algo de tiempo el proceso pedido.
+Notas:
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
