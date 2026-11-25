@@ -33,8 +33,10 @@ public class CuentaCorriente {
     }
 
     public void setSaldo(double saldoInicial) {
+
         this.saldo = saldoInicial;
     }
+    //Implementamos el método que pondría en espera al proceso un tiempo aleatorio entre 250 y 2000 ms
     public void sleep(){
         long espera = 250 + (long) (Math.random() * (2000 - 250 + 1));
         try {
@@ -43,6 +45,8 @@ public class CuentaCorriente {
             Thread.currentThread().interrupt();
         }
     }
+    //Implementamos el método añadir saldo a la clase Cuenta Corriente, se introduce una cantidad y el usuario que añadiría el
+    //saldo
     public synchronized void añadirSaldo (double cantidad, String user){
 
         double saldoPrevio = this.saldo;

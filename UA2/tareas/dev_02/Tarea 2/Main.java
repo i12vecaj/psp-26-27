@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
     CuentaCorriente cuenta = new CuentaCorriente(1000,"Manolo");
         System.out.println("Cuenta con saldo inicial de 1000 euros");
+        //Creamos varios hilos de ingresos de distintos usuarios con distintas cantidades, introduciendo cantidad y usuario
         Ingreso i1 = new Ingreso(cuenta,100, "Manu");
         Ingreso i2 = new Ingreso(cuenta,50,"Martin");
         Ingreso i3 = new Ingreso (cuenta, 24,"El Carlos");
