@@ -4,7 +4,7 @@ import java.io.*;
 public class Ejemplo2 {
 	public static void main(String[] args) throws IOException {
 
-		Process p = new ProcessBuilder("CMD", "/C", "DIR").start();
+		Process p = new ProcessBuilder("bash", "-c", "ls").start();
 		try {
 
 			InputStream is = p.getInputStream();
@@ -15,7 +15,7 @@ public class Ejemplo2 {
 				System.out.print((char) c);
 			 is.close();
 
-		
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
