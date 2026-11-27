@@ -1,0 +1,31 @@
+EXAMEN UA1 · MODELO B · PARTE CONCEPTUAL (3 puntos)
+
+NOMBRE:Rubén Araujo Regalón
+FECHA:27-11-2026
+
+Tiempo: 30 minutos. Sin apuntes y sin acceso a internet ni a herramientas de IA.
+Responde con tus propias palabras.
+
+a) Define qué es un proceso y explica qué es el código de salida de un proceso y qué indican el valor 0 y los demás valores. 
+0,5 puntos
+un proceso es un programa que esta ejecucion que tiene sus propios datos de memoria, un proceso puede contener un hilo o varios que realizan unas instrucciones y comparten datos entre ellos
+
+b) Indica qué comparten y qué no comparten dos hilos de un mismo proceso y dos procesos distintos. Explica en qué situación usarías hilos y en cuál usarías procesos. 0,75 puntos
+Pueden compartir datos entre ellos, yo creo que siempre tienes que utilizar hilos para cumplir instrucciones y que el proceso sea mas eficiente.
+
+c) Define programación concurrente y explica los dos problemas que plantea (exclusión mutua y condición de sincronización) con un ejemplo de la vida cotidiana, no informático, para cada uno. 0,75 puntos
+la programacion concurrente es que por ejemplo en un programa varias tareas puedan como avanzar a la vez por ejemplo que un programa pueda descargar un archivo y que a la vez sigas usandolo, si tu ordenador tuviese un nucleo se irian turnando y  avanzando los dos a la vezm,
+un ejemplo de condicion de sincronizacion seria en un restaurante un camarero hasta que el plato no este terminado, no se lo puede entregar al cliente .
+condicion de sincronización si dos personas trabajan vendiendo entradas en un cine y tienen un cliente solo uno podria hacer la venta.
+
+d) Pon un ejemplo real de programación paralela y otro de programación distribuida, e indica una ventaja y un inconveniente de cada una. 0,5 puntos
+La programacion paralela es como si pones a tu ordenador y todos sus nucleos a reproducir un video,la ventaja es que seria mucho mas rapido pero es dificil hacer como una vinculación efectiva, sin embargo la distribuida no trabajaria solo un ordenador si no que varios dentro de una red, la ventaja es tu decision sobre cuantos pondrias en cierta parte y la desventaja es que un fallo en la red seria problema para todos
+e) Desarrollo de software con IA. 0,5 puntos
+   - Indica qué partes debe tener una skill (el fichero SKILL.md) y para qué sirve cada una.
+   - Cita dos errores típicos que una IA puede cometer en un programa con hilos y procesos y explica cómo los detectarías.
+
+
+Notas:
+
+Entrega: sube el fichero examen_ua1_conceptual.txt a tu rama dev_XX, en la carpeta
+UA1/examen/dev_XX/ (sustituye XX por tu número).
